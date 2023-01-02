@@ -1,0 +1,113 @@
+---
+title: "story_ivestigation"
+author: "Mie Buchhave Ryborg"
+date: "11/16/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+pacman::p_load(tidyverse, ggplot2)
+```
+
+```{r}
+
+story_1_text <- "Berkah swept the ground vigorously. He wanted to ensure that everything was perfect for his queen. He had stirred awake at 4, wondering if the disinfectant was too strong for her. He had run to his master's house, woken his disgruntled co-workers and borrowed an effective disinfectant with mild odour. Her food was ready too, a tasty combination of vitamins and minerals. Berkah looked up reverently as his queen stepped into her lair, her head high. Her coat sparkled with his care and her silky mane flew in the breeze. She neighed gratefully at the delicious scent of fresh grass."
+
+story_2_text <- "On sunny mornings, still in her dressing gown, Edith would hobble from her house, dragging along a folding chair. She would sit down in her front garden and watch people leaving for work, children going to school and dog walkers heading to the park. Anyone catching her eye was offered a friendly wave. Observing comings and goings of people made her wistful for the days when she had been a busy working mother. The people being observed noticed the old woman and wished they could trade places, longing for the day they could sit in their garden on a sunny weekday morning, carefree."
+
+story_3_text <- "Battered and bruised, the elderly woman had stumbled and was now crawling to reach her destination. She had been badly beaten but was determined. She was a survivor and somehow everyone knew she would make it. When she arrived at the pedestal, she thrust her sword in the ground and used it as a support to raise herself to a standing position. She withdrew the sword from the ground with her right hand and collected her scales with her left. She now proudly stood tall and erect as Lady Justice had finally regained her rightful position."
+
+story_4_text <- "After an arduous trek of more than two kilometers through the bushes, big boulders, slippery slopes from overnight rain as well as posted Warning signs not to advance further, Jim finally reached the summit of the monolithic mountain, still hosting the remnants of a past fort. But it was the last hundred meters of crawling on jagged stone that made him breathless. But from the top, the beauty of nature in front made him more breathless. The blue Aegean Sea dotted with volcanic islands and two slow-moving cruise ships, matching the blue color of cloudless sky appeared surreal. He remained stunned."
+
+story_5_text <- "They crossed paths at a downtown club in 1984. When the material girl in the shocking-pink minidress, neon-yellow pumps, and armful of colorful bangles locked eyes with the spikey-haired rebel in the leather pants and mesh tank, love struck. They became the quintessential eighties couple, young and stylish, with a future even brighter than her clothes. These days, he hides what is left of his hair beneath a baseball hat and she has traded in her fluorescent frocks for a wardrobe of neutrals, but sometimes on Friday nights they dust off their old CDs and dance until dawn."
+
+story_1_text <- strsplit(story_1_text, " ", fixed=T)
+story_2_text <- strsplit(story_2_text, " ", fixed=T)
+story_3_text <- strsplit(story_3_text, " ", fixed=T)
+story_4_text <- strsplit(story_4_text, " ", fixed=T)
+story_5_text <- strsplit(story_5_text, " ", fixed=T)
+
+```
+
+
+```{r}
+# TYPE-TOKEN RATIO
+
+story_elements <- c(story_1_text, story_2_text, story_3_text, story_4_text, story_5_text)
+
+
+for (i in 1:5) {
+  unique_words <- tibble(words = "a", count = 0)
+
+  for (word in story_elements[[i]]) {
+    
+    word_new <- gsub("[[:punct:]]", "", word)
+    
+    word_new <- tolower(word_new)
+    
+    if (word_new %in% unique_words$words) {
+      
+      index <- which(unique_words$words == word_new)
+      unique_words$count[index] <- unique_words$count[index] + 1
+    } else {
+      unique_words <- add_row(unique_words, words = word_new, count = 1)
+    }
+  }
+  
+  print("Type-Token Ratio:")
+  print(length(unique_words$words)/length(story_1_text[[1]]) * 100)
+  
+  top_five <- unique_words[order(-unique_words$count),]
+  print("Top 5 Words:")
+  
+  for (word in 1:5) {
+    print(paste(top_five$words[word], ":", as.character(top_five$count[word])))
+  }
+
+}
+
+
+```
+
+```{r}
+
+# Lexical Density
+stopword_list <- stopwords::stopwords("en", source = "nltk")
+
+
+function_word <- c()
+
+for (i in 1:5) {
+  word_type <- tibble(words = "a", w_type = "hi")
+
+  for (word in story_elements[[i]]) {
+    
+    word_new <- gsub("[[:punct:]]", "", word)
+    
+    word_new <- tolower(word_new)
+    
+    if (word %in% stopword_list) {
+      type <- "function"
+    } else {
+      type <- "content"
+    }
+    
+    word_type <- add_row(word_type, words = word_new, w_type = type)
+  }
+  
+  content_words <- word_type %>% filter(w_type == "content")
+  
+  print(paste("lexical density of story", 
+              as.character(i), ":", 
+              as.character(round((length(content_words$words) / length(story_elements[[i]]) ) * 100, 2))
+              )
+        )
+  
+}
+
+```
+
