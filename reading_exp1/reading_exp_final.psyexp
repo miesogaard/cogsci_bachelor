@@ -1,0 +1,682 @@
+﻿<?xml version="1.0" ?>
+<PsychoPy2experiment encoding="utf-8" version="2020.2.4">
+  <Settings>
+    <Param name="Audio latency priority" updates="None" val="use prefs" valType="str"/>
+    <Param name="Audio lib" updates="None" val="use prefs" valType="str"/>
+    <Param name="Completed URL" updates="None" val="" valType="str"/>
+    <Param name="Data file delimiter" updates="None" val="auto" valType="str"/>
+    <Param name="Data filename" updates="None" val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code"/>
+    <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
+    <Param name="Experiment info" updates="None" val="{'participant': 'please_write_random_letters_and_numbers_here', 'your_age': '', 'your_gender': 'Female, Male, Other'}" valType="code"/>
+    <Param name="Force stereo" updates="None" val="True" valType="bool"/>
+    <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
+    <Param name="HTML path" updates="None" val="" valType="str"/>
+    <Param name="Incomplete URL" updates="None" val="" valType="str"/>
+    <Param name="Monitor" updates="None" val="testMonitor" valType="str"/>
+    <Param name="Resources" updates="None" val="['/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/-After.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/-Anyone.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/-Battered.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/-Berkah.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/-But.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/-He.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/-Her.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/-Observing.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/-On.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/-She.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/-The.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/-These.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/-They.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/-When.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Af**ter.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Aft**er.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-An**yone.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Anyo**ne.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-B**ut.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Ba**ttered.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Batter**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Be**rkah.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Berk**ah.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Bu**t.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Edi**th.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-H**e.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-H**er.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-He**r.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-O**n.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Ob**serving.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Observi**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-S**he.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Sh**e.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-T**he.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-T**hey.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Th**e.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Th**ese.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-The**se.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-The**y.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-W**hen.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**-Whe**n.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**1**984..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**4**,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**198**4..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**a**.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**a**n.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**a**nd.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**a**s.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**a**t.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ad**vance.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**advan**ce.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Ae**gean.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Aege**an.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**al**ong.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**alo**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**an**d.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ap**peared.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**appear**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ar**duous.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ar**mful.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ar**rived.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**arduo**us.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**armf**ul.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**arriv**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**aw**ake.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**awa**ke.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**b**een.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**b**ig.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**b**lue.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**b**usy.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**b**ut.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ba**dly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ba**ngles.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ba**seball.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Ba**ttered.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bad**ly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bangl**es.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**baseba**ll.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**be**aten.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**be**auty.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**be**came.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**be**ing.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**be**neath.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**beat**en.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**beau**ty.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**beca**me.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bee**n.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bei**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**benea**th.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Berk**ah.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bi**g.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**blu**e.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bo**rowed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bo**rrowed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bo**ulders,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**borrow**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**boulde**rs,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**br**eeze..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**br**ighter.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**br**uised,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bre**athless..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**breathle**ss..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bree**ze..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bright**er.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bruis**ed,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bu**shes,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bu**shes.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bu**t.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bus**y.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**bush**es,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**c**are.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**C**Ds.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**c**lub.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**c**oat.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ca**refree..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ca**refree.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ca**tching.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**car**e.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**carefr**ee..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**catchi**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**CD**s.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ch**air..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ch**ildren.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**cha**ir..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**childr**en.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**cl**othes..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**cl**oudless.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**cloth**es..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**cloudle**ss.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**clu**b.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**co-**workers.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**co-worke**rs.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**co**llected.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**co**lor.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**co**lorful.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**co**mings.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**co**uld.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**co**uple,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**coa**t.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**col**or.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**collect**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**colorf**ul.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**com**bination.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**combinati**on.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**comin**gs.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**cou**ld.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**coup**le,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**cr**awling.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**cr**ossed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**cr**uise.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**craw**ling.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**crawli**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**cross**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**crui**se.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**d**awn..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**d**ay.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**d**ays,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**d**ays.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**d**og.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**d**own.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**d**ust.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**da**nce.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**da**y.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**dan**ce.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**daw**n..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**day**s,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**day**s.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**de**licious.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**delicio**us.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**des**tination..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**destinati**on..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**det**ermined..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**determin**ed..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**determin**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**dis**gruntled.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**dis**infectant.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**disgruntl**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**disinfecta**nt.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**do**g.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**do**tted.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**do**wntown.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**dott**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**dow**n.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**downto**wn.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**dr**agging.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**dr**essing.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**draggi**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**dressi**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**dus**t.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**e**ven.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**e**ye.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**e**yes.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Ed**ith.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Edi**th.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ef**fective.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**effecti**ve.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ei**ghties.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**eighti**es.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**el**derly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**elder**ly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**en**sure.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ensu**re.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**er**ect.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ere**ct.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ev**eryone.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**eve**n.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**eve**rything.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**everyo**ne.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**everythi**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ey**e.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**eye**s.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**f**lew.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**f**ood.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**f**or.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**f**ort..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**f**rom.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**fi**nally.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**final**ly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**fle**w.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**flu**orescent.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**fluoresce**nt.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**fo**lding.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**fo**r.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**foldi**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**foo**d.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**for**t..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**fr**esh.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Fr**iday.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**fr**iendly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**fr**ocks.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**fr**ont.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**fre**sh.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Frid**ay.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**friend**ly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**fro**m.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**fro**nt.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**froc**ks.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**fu**rther,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**fu**ture.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**furth**er,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**futu**re.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**g**irl.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**g**own,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ga**rden.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**gard**en.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**gir**l.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**go**ing.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**go**ings.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**goi**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**goin**gs.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**gow**n,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**gr**ass..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**gr**ound.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**gra**ss..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**gra**tefully.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**grateful**ly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**grou**nd.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**h**ad.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**h**air.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**h**and.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**h**as.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**h**at.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**h**e.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**h**ead.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**h**er..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**h**er.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**h**igh..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**h**im.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**h**is.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ha**d.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ha**s.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ha**t.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**hai**r.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**han**d.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**he**ading.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**he**r..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**he**r.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**he**rself.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**hea**d.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**headi**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**herse**lf.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**hi**des.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**hi**m.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**hi**s.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**hid**es.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**hig**h..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ho**bble.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ho**sting.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ho**use,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**hobb**le.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**hosti**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**hou**se,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**hu**ndred.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**hundr**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**i**f.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**i**n.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**i**nto.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**i**s.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**i**t..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**i**t.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**int**o.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**is**lands.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**islan**ds.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**J**im.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ja**gged.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**jagg**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Ji**m.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Ju**stice.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Justi**ce.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**k**new.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**kil**ometers.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**kilomete**rs.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**kne**w.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**L**ady.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**l**air,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**l**ast.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**l**eft..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**l**eft.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**l**ove.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Lad**y.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**lai**r,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**las**t.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**le**ather.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**le**aving.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**leath**er.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**leavi**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**lef**t..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**lef**t.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**lo**cked.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**lo**nging.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**lo**oked.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**lock**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**longi**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**look**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**lov**e.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**m**ade.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**m**ake.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**m**ane.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**m**esh.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**m**ild.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**m**ore.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ma**sters.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ma**tching.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ma**terial.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mad**e.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mak**e.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**man**e.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**master**s.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**matchi**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**materi**al.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**me**ters.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mes**h.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mete**rs.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mi**nerals..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mi**nidress,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mi**nidress.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mil**d.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**minera**ls..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**minidre**ss,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mo**rning,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mo**rnings,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mo**ther..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mo**untain,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mon**olithic.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**monolith**ic.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mor**e.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**morni**ng,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mornin**gs,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**moth**er..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**mounta**in,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**n**ot.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**n**ow.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**na**ture.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**natu**re.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ne**ighed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ne**utrals,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**neigh**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**neo**n-yellow.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**neon-yell**ow.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**neutra**ls,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ni**ghts.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**nigh**ts.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**no**t.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**no**ticed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**no**w.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**notic**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**o**f.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**o**ff.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**o**ld.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**o**n.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ob**served.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**observ**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**od**our..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**odo**ur..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**of**f.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**of**fered.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**offer**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ol**d.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ov**ernight.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**overnig**ht.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**p**ark..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**p**ast.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**pa**nts.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**pa**ths.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**pan**ts.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**par**k..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**pas**t.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**pat**hs.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**pe**destal,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**pe**ople.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**pe**rfect.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**pedest**al,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**peop**le.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**perfe**ct.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**pl**aces,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**plac**es,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**po**sition..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**po**sted.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**positi**on..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**post**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**pr**oudly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**proud**ly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**pu**mps,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**pum**ps,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**qu**een..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**qu**een.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**que**en..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**que**en.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**qui**ntessential.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**quintessenti**al.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**r**ain.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**r**un.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ra**ise.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**rai**n.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**rai**se.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**re**ach.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**re**ached.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**re**ady.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**re**bel.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**re**gained.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**re**mained.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**re**mnants.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**rea**ch.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**rea**dy.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**reach**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**reb**el.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**regain**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**remain**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**remnan**ts.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**rev**erently.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**reverent**ly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ri**ght.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ri**ghtful.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**rig**ht.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**rightf**ul.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ru**n.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**S**ea.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**s**he.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**s**it.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**s**ky.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sc**ales.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sc**ent.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sc**hool.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**scal**es.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sce**nt.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**scho**ol.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**scloudle**ss.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Se**a.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**setermin**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sh**e.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sh**ips,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sh**ips.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**shi**ps,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sho**cking-pink.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**shocking-pi**nk.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**si**gns.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**si**lky.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**si**t.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sig**ns.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sil**ky.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sk**y.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sl**ippery.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sl**opes.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sl**oudless.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**slippe**ry.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**slo**w-moving.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**slop**es.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**slow-movi**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**so**mehow.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**so**metimes.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**someh**ow.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sometim**es.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sp**arkled.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sparkl**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**spi**key-haired.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**spikey-hair**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**st**anding.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**st**epped.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**st**ill.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**st**irred.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**st**one.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**st**ood.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**st**rong.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**st**ruck..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**st**umbled.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**st**unned..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**st**ylish,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**standi**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**stepp**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sti**ll.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**stirr**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sto**ne.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sto**od.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**stro**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**stru**ck..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**stumbl**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**stunn**ed..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**styli**sh,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**su**mmit.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**su**nny.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**su**pport.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**su**real..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**su**rreal..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**su**rvivor.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**summ**it.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sun**ny.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**suppo**rt.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**surre**al..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**surviv**or.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sw**ept.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**sw**ord.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**swe**pt.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**swo**rd.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**t**all.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**t**ank,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**t**han.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**t**hat.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**t**he.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**t**hey.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**t**o.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**t**oo,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**t**oo.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**t**op,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**t**rek.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**t**wo.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**ta**sty.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**tal**l.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**tan**k,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**tas**ty.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**th**e.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**th**eir.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**th**rough.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**th**rust.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**tha**n.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**tha**t.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**the**ir.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**the**y.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**throu**gh.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**thru**st.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**to**o,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**to**o.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**to**p,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**tr**ade.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**tr**aded.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**tra**de.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**trad**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**tre**k.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**tw**o.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**u**p.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**u**sed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**un**til.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**unt**il.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**use**d.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**vi**tamins.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**vig**orously..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**vigorous**ly..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**vitami**ns.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**vo**lcanic.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**volcan**ic.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**w**as.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**w**ave..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**w**ell.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**w**hat.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**w**hen.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**w**ith.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**w**ork,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wa**lkers.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wa**nted.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wa**rdrobe.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Wa**rning.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wa**s.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wa**tch.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**walke**rs.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**want**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wardro**be.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**Warni**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wat**ch.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wav**e..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**we**ekday.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**weekd**ay.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wel**l.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wha**t.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**whe**n.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wi**shed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wi**stful.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wi**thdrew.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wish**ed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wistf**ul.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wit**h.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**withdr**ew.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wo**ken.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wo**man.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wo**ndering.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wo**rking.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wo**uld.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wok**en.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wom**an.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wonderi**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wor**k,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**worki**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**wou**ld.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**yo**ung.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/**you**ng.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/4,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/1984..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/a.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/advance.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/Aegean.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/along.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/an.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/and.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/appeared.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/arduous.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/armful.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/arrived.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/as.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/at.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/awake.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/badly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/bangles.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/baseball.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/beaten.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/beauty.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/became.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/been.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/being.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/beneath.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/big.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/blue.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/borrowed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/boulders,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/breathless..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/breeze..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/brighter.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/bruised,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/bushes,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/busy.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/but.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/care.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/carefree..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/carefree.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/catching.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/CDs.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/chair..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/children.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/clothes..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/cloudless.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/club.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/co-workers.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/coat.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/collected.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/color.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/colorful.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/combination.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/comings.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/condition_1.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/could.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/couple,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/crawling.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/crossed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/cruise.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/dance.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/dawn..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/day.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/days,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/days.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/delicious.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/destination..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/determined..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/disgruntled.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/disinfectant.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/dog.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/dotted.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/down.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/downtown.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/dragging.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/dressing.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/dust.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/Edith.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/effective.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/eighties.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/elderly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/ensure.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/erect.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/even.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/everyone.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/everything.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/eye.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/eyes.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/finally.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/flew.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/fluorescent.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/folding.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/food.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/for.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/fort..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/fresh.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/Friday.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/friendly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/frocks.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/from.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/front.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/further,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/future.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/garden.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/girl.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/going.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/goings.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/gown,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/grass..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/gratefully.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/ground.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/had.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/hair.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/hand.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/has.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/hat.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/he.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/head.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/heading.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/her..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/her.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/herself.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/hides.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/high..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/him.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/his.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/hobble.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/hosting.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/house,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/house.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/hundred.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/if.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/in.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/into.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/is.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/islands.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/it..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/it.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/jagged.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/Jim.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/Justice.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/kilometers.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/knew.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/Lady.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/lair,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/last.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/leather.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/leaving.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/left..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/left.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/locked.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/longing.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/looked.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/love.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/made.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/make.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/mane.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/masters.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/matching.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/material.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/mesh.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/meters.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/mild.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/minerals..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/minidress,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/monolithic.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/more.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/morning,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/morning.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/mornings,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/mother..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/mountain,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/nature.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/neighed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/neon-yellow.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/neutrals,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/nights.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/not.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/noticed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/now.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/observed.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/odour..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/of.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/off.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/offered.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/old.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/on.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/overnight.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/pants.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/park..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/past.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/paths.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/pedestal,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/people.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/perfect.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/places,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/position..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/posted.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/proudly.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/pumps,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/queen..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/queen.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/quintessential.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/rain.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/raise.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/reach.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/reached.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/ready.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/rebel.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/regained.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/remained.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/remnants.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/reverently.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/right.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/rightful.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/run.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/scales.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/scent.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/school.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/Sea.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/she.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/ships,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/shocking-pink.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/signs.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/silky.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/sit.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/sky.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/slippery.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/slopes.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/slow-moving.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/somehow.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/sometimes.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/sparkled.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/spikey-haired.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/standing.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/stepped.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/still.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/stirred.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/stone.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/stood.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_1_control.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_1_hfhs.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_1_hfls.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_1_lfhs.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_1_lfls.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_1_q_1.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_1_q_2.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_1_q_3.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_1_q_4.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_2_control.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_2_hfhs.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_2_hfls.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_2_lfhs.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_2_lfls.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_2_q_1.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_2_q_2.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_2_q_3.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_2_q_4.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_3_control.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_3_hfhs.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_3_hfls.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_3_lfhs.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_3_lfls.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_3_q_1.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_3_q_2.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_3_q_3.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_3_q_4.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_4_control.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_4_hfhs.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_4_hfls.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_4_lfhs.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_4_lfls.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_4_q_1.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_4_q_2.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_4_q_3.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_4_q_4.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_5_control.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_5_hfhs.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_5_hfls.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_5_lfhs.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_5_lfls.xlsx', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_5_q_1.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_5_q_2.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_5_q_3.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/story_5_q_4.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/strong.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/struck..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/stumbled.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/stunned..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/stylish,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/summit.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/sunny.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/support.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/surreal..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/surreal.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/survivor.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/swept.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/sword.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/tall.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/tank,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/tasty.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/than.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/that.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/the.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/their.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/they.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/through.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/thrust.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/to.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/too,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/too.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/top,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/trade.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/traded.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/trek.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/two.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/until.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/up.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/used.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/vigorously..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/vitamins.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/volcanic.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/walkers.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/wanted.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/wardrobe.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/Warning.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/was.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/watch.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/wave..png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/weekday.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/well.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/what.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/when.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/wished.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/wistful.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/with.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/withdrew.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/woken.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/woman.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/wondering.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/work,.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/working.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/would.png', '/Users/miesogaard/Dokumenter/AU/reading_exp_final/resources/young.png']" valType="fileList"/>
+    <Param name="Save csv file" updates="None" val="False" valType="bool"/>
+    <Param name="Save excel file" updates="None" val="False" valType="bool"/>
+    <Param name="Save log file" updates="None" val="True" valType="bool"/>
+    <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
+    <Param name="Save wide csv file" updates="None" val="True" valType="bool"/>
+    <Param name="Screen" updates="None" val="1" valType="num"/>
+    <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
+    <Param name="Show mouse" updates="None" val="False" valType="bool"/>
+    <Param name="Units" updates="None" val="height" valType="str"/>
+    <Param name="Use version" updates="None" val="" valType="str"/>
+    <Param name="Window size (pixels)" updates="None" val="[1440, 900]" valType="code"/>
+    <Param name="blendMode" updates="None" val="avg" valType="str"/>
+    <Param name="color" updates="None" val="$[1,1,1]" valType="str"/>
+    <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
+    <Param name="expName" updates="None" val="reading_exp_final" valType="str"/>
+    <Param name="exportHTML" updates="None" val="on Sync" valType="str"/>
+    <Param name="logging level" updates="None" val="debug" valType="code"/>
+  </Settings>
+  <Routines>
+    <Routine name="welcomeScreen">
+      <TextComponent name="text">
+        <Param name="color" updates="constant" val="black" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.03" valType="code"/>
+        <Param name="name" updates="None" val="text" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="In a moment, you will be presented to a short story, one word at a time.&amp;#10;When you have read the word on the screen, press the space-button immediately. &amp;#10;Continue doing this until the story has finished.&amp;#10;&amp;#10;After the story, you have to answer a few questions.&amp;#10;&amp;#10;This procedure will repeat five times.&amp;#10;&amp;#10;Press the space-button when you are ready to start reading..." valType="extendedStr"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp">
+        <Param name="allowedKeys" updates="constant" val="['space']" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="initCode">
+      <CodeComponent name="code">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="&amp;#10;psychoJS.serverManager.prepareResources([ { &amp;#10;    'name': story_1_control.xlsx, 'path': resources+'/'+story_1_control.xlsx, 'download': true,&amp;#10;    'name': story_1_hfhs.xlsx, 'path': resources+'/'+story_1_hfhs.xlsx, 'download': true,&amp;#10;    'name': story_1_hfls.xlsx, 'path': resources+'/'+story_1_hfls.xlsx, 'download': true,&amp;#10;    'name': story_1_lfhs.xlsx, 'path': resources+'/'+story_1_lfhs.xlsx, 'download': true,&amp;#10;    'name': story_1_lfls.xlsx, 'path': resources+'/'+story_1_lfls.xlsx, 'download': true,&amp;#10;    'name': story_2_control.xlsx, 'path': resources+'/'+story_2_control.xlsx, 'download': true,&amp;#10;    'name': story_2_hfhs.xlsx, 'path': resources+'/'+story_2_hfhs.xlsx, 'download': true,&amp;#10;    'name': story_2_hfls.xlsx, 'path': resources+'/'+story_2_hfls.xlsx, 'download': true,&amp;#10;    'name': story_2_lfhs.xlsx, 'path': resources+'/'+story_2_lfhs.xlsx, 'download': true,&amp;#10;    'name': story_2_lfls.xlsx, 'path': resources+'/'+story_2_lfls.xlsx, 'download': true,&amp;#10;    'name': story_3_control.xlsx, 'path': resources+'/'+story_3_control.xlsx, 'download': true,&amp;#10;    'name': story_3_hfhs.xlsx, 'path': resources+'/'+story_3_hfhs.xlsx, 'download': true,&amp;#10;    'name': story_3_hfls.xlsx, 'path': resources+'/'+story_3_hfls.xlsx, 'download': true,&amp;#10;    'name': story_3_lfhs.xlsx, 'path': resources+'/'+story_3_lfhs.xlsx, 'download': true,&amp;#10;    'name': story_3_lfls.xlsx, 'path': resources+'/'+story_3_lfls.xlsx, 'download': true,&amp;#10;    'name': story_4_control.xlsx, 'path': resources+'/'+story_4_control.xlsx, 'download': true,&amp;#10;    'name': story_4_hfhs.xlsx, 'path': resources+'/'+story_4_hfhs.xlsx, 'download': true,&amp;#10;    'name': story_4_hfls.xlsx, 'path': resources+'/'+story_4_hfls.xlsx, 'download': true,&amp;#10;    'name': story_4_lfhs.xlsx, 'path': resources+'/'+story_4_lfhs.xlsx, 'download': true,&amp;#10;    'name': story_4_lfls.xlsx, 'path': resources+'/'+story_4_lfls.xlsx, 'download': true,&amp;#10;    'name': story_5_control.xlsx, 'path': resources+'/'+story_5_control.xlsx, 'download': true,&amp;#10;    'name': story_5_hfhs.xlsx, 'path': resources+'/'+story_5_hfhs.xlsx, 'download': true,&amp;#10;    'name': story_5_hfls.xlsx, 'path': resources+'/'+story_5_hfls.xlsx, 'download': true,&amp;#10;    'name': story_5_lfhs.xlsx, 'path': resources+'/'+story_5_lfhs.xlsx, 'download': true,&amp;#10;    'name': story_5_lfls.xlsx, 'path': resources+'/'+story_5_lfls.xlsx, 'download': true } &amp;#10;]);&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="import random&amp;#10;&amp;#10;story = [&quot;story_1&quot;, &quot;story_2&quot;, &quot;story_3&quot;, &quot;story_4&quot;, &quot;story_5&quot;]&amp;#10;dif_condition = [&quot;_hfhs.xlsx&quot;, &quot;_lfhs.xlsx&quot;, &quot;_lfls.xlsx&quot;, &quot;_hfls.xlsx&quot;, &quot;_control.xlsx&quot;]&amp;#10;&amp;#10;random.shuffle(story)&amp;#10;random.shuffle(dif_condition)&amp;#10;&amp;#10;selected_condition = [&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;]&amp;#10;&amp;#10;for i in range(0, 5):&amp;#10;    selected_condition[i] = 'resources/' + story[i] + dif_condition[i]&amp;#10;    &amp;#10;count = 0&amp;#10;count_extra = count&amp;#10;this_condition = selected_condition[0]&amp;#10;&amp;#10;text_element = &quot;You have now answered all the questions to the story. \n\n Now, you will have to read the next story. \n\n Press the space-button when you are ready to continue.&quot;" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="function shuffle(a) {&amp;#10;    var j, x, i;&amp;#10;    for (i = a.length - 1; i &gt; 0; i--) {&amp;#10;        j = Math.floor(Math.random() * (i + 1));&amp;#10;        x = a[i];&amp;#10;        a[i] = a[j];&amp;#10;        a[j] = x;&amp;#10;    }&amp;#10;    return a;&amp;#10;}&amp;#10;&amp;#10;story = [&quot;story_1&quot;, &quot;story_2&quot;, &quot;story_3&quot;, &quot;story_4&quot;, &quot;story_5&quot;];&amp;#10;dif_condition = [&quot;_hfhs.xlsx&quot;, &quot;_lfhs.xlsx&quot;, &quot;_lfls.xlsx&quot;, &quot;_hfls.xlsx&quot;, &quot;_control.xlsx&quot;];&amp;#10;&amp;#10;shuffle(story)&amp;#10;shuffle(dif_condition)&amp;#10;&amp;#10;selected_condition = [&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;];&amp;#10;&amp;#10;for (var i = 0, _pj_a = 5; (i &lt; _pj_a); i += 1) {&amp;#10;    selected_condition[i] = ((&quot;resources/&quot; + story[i]) + dif_condition[i]);&amp;#10;}&amp;#10;count = 0;&amp;#10;count_extra = count;&amp;#10;&amp;#10;this_condition = selected_condition[0];&amp;#10;&amp;#10;text_element = &quot;You have now answered all the questions to the story. \n\n Now, you will have to read the next story. \n\n Press the space-button when you are ready to continue.&quot;;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code" valType="code"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="showQuestions">
+      <ImageComponent name="question_image">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="$questions" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="name" updates="None" val="question_image" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="size" updates="constant" val="(1.2, 0.7)" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="512" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <KeyboardComponent name="question_resp">
+        <Param name="allowedKeys" updates="constant" val="'1','2','3','4'" valType="code"/>
+        <Param name="correctAns" updates="constant" val="$correct" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="question_resp" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="True" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="showStory">
+      <ImageComponent name="stimuli">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="$words" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="name" updates="None" val="stimuli" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="size" updates="constant" val="(1, 0.6)" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="512" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <KeyboardComponent name="key_respone_stimuli">
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="key_respone_stimuli" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="newHello">
+      <TextComponent name="text_2">
+        <Param name="color" updates="constant" val="black" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+        <Param name="name" updates="None" val="text_2" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="Hello!" valType="extendedStr"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_3">
+        <Param name="allowedKeys" updates="constant" val="'space', '1'" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp_3" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="showStory_2">
+      <ImageComponent name="story_image">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="$words" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="name" updates="None" val="story_image" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="size" updates="constant" val="(1, 0.6)" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="512" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <KeyboardComponent name="word_resp">
+        <Param name="allowedKeys" updates="constant" val="['space']" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="word_resp" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="extraCode">
+      <CodeComponent name="code_4">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="count = (count + 1);&amp;#10;count_extra = count;&amp;#10;if ((count &gt; 4)) {&amp;#10;    count = 4;&amp;#10;}&amp;#10;if ((count === 4)) {&amp;#10;    text_element = &quot;Dette var den sidste historie, og eksperimentet er nu slut. \n\n Tak for din deltagelse! \n\n OM EKSPERIMENTET: \n Dette projekt tager udgangspunkt i l\u00e6sev\u00e6rkt\u00f8jet \u201cBionic Reading\u201d, som er et v\u00e6rkt\u00f8j, der p\u00e5 baggrund af en algoritme konvertere en tekst, s\u00e5 dele af ord i en tekst er fremh\u00e6vet. Dette eksperiment er med til at unders\u00f8ge, hvorvidt dette v\u00e6rkt\u00f8j p\u00e5virker l\u00e6sehastighed og l\u00e6seforst\u00e5else. \n\n Tryk p\u00e5 mellemrumstasten for at afslutte eksperimentet. \n\n Vent venligst med at afslutte fuldssk\u00e6rmsvisning, indtil beskeden p\u00e5 sk\u00e6rmen bekr\u00e6fter, at data er gemt.&quot;;&amp;#10;}&amp;#10;this_condition = selected_condition[count];&amp;#10;" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="count = count + 1&amp;#10;count_extra = count&amp;#10;&amp;#10;if count &gt; 4:&amp;#10;    count = 4&amp;#10;&amp;#10;if count == 4:&amp;#10;    text_element = &quot;Dette var den sidste historie, og eksperimentet er nu slut. \n\n Tak for din deltagelse! \n\n OM EKSPERIMENTET: \n Dette projekt tager udgangspunkt i læseværktøjet “Bionic Reading”, som er et værktøj, der på baggrund af en algoritme konvertere en tekst, så dele af ord i en tekst er fremhævet. Dette eksperiment er med til at undersøge, hvorvidt dette værktøj påvirker læsehastighed og læseforståelse. \n\n Tryk på mellemrumstasten for at afslutte eksperimentet. \n\n Vent venligst med at afslutte fuldsskærmsvisning, indtil beskeden på skærmen bekræfter, at data er gemt.&quot;&amp;#10;&amp;#10;this_condition = selected_condition[count]&amp;#10;" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code_4" valType="code"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="consentForm">
+      <TextComponent name="text_4">
+        <Param name="color" updates="constant" val="black" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.025" valType="code"/>
+        <Param name="name" updates="None" val="text_4" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="Dette er samtykkeerklæringen for dette eksperiment, som er en del af et Bachelorprojekt på Cognitive Science-uddannelsen på Aarhus Universitet.&amp;#10;&amp;#10;Forventet tid for gennemførelse: 10-15 minutter&amp;#10;&amp;#10;Hvis du har spørgsmål, kontakt venligst den ansvarlige for dette projekt:&amp;#10;Mie Buchhave Ryborg, 202004812@post.au.dk&amp;#10;&amp;#10;For at deltage i dette eksperiment, skal du opfylde følgende krav:&amp;#10;- Have normalt/korrigeret syn (du må godt bruge briller eller kontaktlinser)&amp;#10;- Have dansk som modersmål&amp;#10;&amp;#10;Det brede fokus i dette bachelorprojekt er at undersøge læsning og forståelse af tekstmateriale. Den specifikke hypotese vil først blive fremlagt efter eksperimentet er færdigt, eftersom det muligvis vil kunne have indflydelse på resultaterne.&amp;#10;&amp;#10;Deltagelse i eksperimentet er frivilligt, og du er fri til at afbryde eksperimentet på et hvilket som helst tidspunkt. Dette gøres ved at trykke på “escape”-knappen på computeren og derefter lukke fanen. Al data indtil dette punkt vil blive slettet omgående. Vær opmærksom dog på, at du ikke kan deltage og fuldføre eksperimentet på et senere tidspunkt, hvis du vælger at afbryde.&amp;#10;&amp;#10;Da din data er anonymiseret, vil det ikke være muligt at identificere dig. Dette betyder også, at det ikke vil være muligt at slette din data, efter at eksperimentet er afsluttet.&amp;#10;&amp;#10;Data vil blive gemt på en server via Pavlovia (pavlovia.org) samt i eksperimentets GitLab repositorium. Data vil derudover blive processeret lokalt på den ansvarliges egen computer. Al data vil blive slettet, når projektet er blevet evalueret i slutningen af januar 2023.&amp;#10;&amp;#10;Ved at trykke på “J” på dit tastatur erklærer du dig enig i at have læst og forstået denne samtykkeerklæring. " valType="extendedStr"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="agree_resp">
+        <Param name="allowedKeys" updates="constant" val="['j']" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="agree_resp" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="firstWelcome">
+      <TextComponent name="danish_welcome">
+        <Param name="color" updates="constant" val="black" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.03" valType="code"/>
+        <Param name="name" updates="None" val="danish_welcome" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="Velkommen til dette eksperiment!&amp;#10;&amp;#10;Venligst fortsæt eksperimentet i fuldskærmsvisning.&amp;#10;Når eksperimentet er afsluttet, vent med at gøre noget indtil en besked på skærmen bekræfter, at data er blevet gemt.&amp;#10;&amp;#10;&amp;#10;Tryk på mellemrumstasten for at læse samtykkeerklæringen." valType="extendedStr"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="welcome_resp">
+        <Param name="allowedKeys" updates="constant" val="['space']" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="welcome_resp" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="afterQuestions">
+      <TextComponent name="text_5">
+        <Param name="color" updates="constant" val="black" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.03" valType="code"/>
+        <Param name="name" updates="None" val="text_5" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="set every repeat" val="$text_element" valType="extendedStr"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_5">
+        <Param name="allowedKeys" updates="constant" val="['space']" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp_5" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="afterStory">
+      <TextComponent name="text_3">
+        <Param name="color" updates="constant" val="black" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.03" valType="code"/>
+        <Param name="name" updates="None" val="text_3" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="The story is now finished.&amp;#10;&amp;#10;Now, you will have to answer some questions about the story.&amp;#10;There will be four answers, where one of them is correct.&amp;#10;&amp;#10;Press the corresponding number on your keyboard (1, 2, 3 or 4) that you think is the right answer.&amp;#10;&amp;#10;Press &quot;enter&quot; to read the first question.&amp;#10;" valType="extendedStr"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_4">
+        <Param name="allowedKeys" updates="constant" val="['return']" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp_4" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="showGoodbye">
+      <TextComponent name="text_6">
+        <Param name="color" updates="constant" val="black" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.03" valType="code"/>
+        <Param name="name" updates="None" val="text_6" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="The experiment is now done. Thank you for your participation!&amp;#10;&amp;#10;Press the “space” button to exit the experiment, but please do not close the browser window before you get a confirmation about your data being saved.&amp;#10;&amp;#10;" valType="extendedStr"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="exit_resp">
+        <Param name="allowedKeys" updates="constant" val="['space']" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="exit_resp" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="firstCode">
+      <CodeComponent name="code_2">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="if ((count === 4)) {&amp;#10;    text_element = &quot;This was the last story&quot;;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if count == 4:&amp;#10;    text_element = &quot;This was the last story&quot;" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code_2" valType="code"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="fixation">
+      <TextComponent name="text_7">
+        <Param name="color" updates="constant" val="black" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.03" valType="code"/>
+        <Param name="name" updates="None" val="text_7" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="1.0" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="+" valType="extendedStr"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+    </Routine>
+    <Routine name="confirmationForm">
+      <TextComponent name="confirmation_text">
+        <Param name="color" updates="constant" val="black" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.03" valType="code"/>
+        <Param name="name" updates="None" val="confirmation_text" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="Du har nu bekræftet samtykkeerklæringen.&amp;#10;&amp;#10;&amp;#10;Da eksperimentet foregår på engelsk, vil resten af eksperimentet nu også skifte til engelsk.&amp;#10;&amp;#10;Tryk på mellemrumstasten for at fortsætte til introduktionen." valType="extendedStr"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="conf_resp">
+        <Param name="allowedKeys" updates="constant" val="['space']" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="conf_resp" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="showDebriefing">
+      <TextComponent name="debriefText">
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+        <Param name="name" updates="None" val="debriefText" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="OM EKSPERIMENTET:&amp;#10;&amp;#10;Dette projekt tager udgangspunkt i læseværktøjet “Bionic Reading”, som er et værktøj, der på baggrund af en algoritme konvertere en tekst, så dele af ord i en tekst er fremhævet. &amp;#10;&amp;#10;Dette eksperiment er med til at undersøge, hvorvidt dette værktøj påvirker læsehastighed og læseforståelse." valType="extendedStr"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+    </Routine>
+  </Routines>
+  <Flow>
+    <Routine name="initCode"/>
+    <Routine name="firstWelcome"/>
+    <Routine name="consentForm"/>
+    <Routine name="confirmationForm"/>
+    <Routine name="welcomeScreen"/>
+    <LoopInitiator loopType="TrialHandler" name="trials_2">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="resources/condition_1.xlsx" valType="str"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="False" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="code"/>
+      <Param name="name" updates="None" val="trials_2" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <LoopInitiator loopType="TrialHandler" name="trials">
+      <Param name="Selected rows" updates="None" val="4:" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="$this_condition" valType="str"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="code"/>
+      <Param name="name" updates="None" val="trials" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="showStory_2"/>
+    <LoopTerminator name="trials"/>
+    <Routine name="afterStory"/>
+    <LoopInitiator loopType="TrialHandler" name="questionsLoop">
+      <Param name="Selected rows" updates="None" val="0:4" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="$this_condition" valType="str"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="code"/>
+      <Param name="name" updates="None" val="questionsLoop" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="fixation"/>
+    <Routine name="showQuestions"/>
+    <LoopTerminator name="questionsLoop"/>
+    <Routine name="afterQuestions"/>
+    <Routine name="extraCode"/>
+    <LoopTerminator name="trials_2"/>
+  </Flow>
+</PsychoPy2experiment>
