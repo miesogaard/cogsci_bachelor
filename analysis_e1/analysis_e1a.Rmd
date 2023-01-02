@@ -692,9 +692,7 @@ print(difference_again)
 difference_again / length_now * 100
 
 ```
-```{r}
-df_s_filter$rt <- round(df_s_filter$rt * 1000)
-```
+
 
 
 Comparing to all data points (no mean for each participant)
