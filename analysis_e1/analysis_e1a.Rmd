@@ -559,10 +559,26 @@ qqline(resid(lmer_model_1a_1))
 ```{r}
 summary(lmer_model_1a_1)
 ```
+
 ```{r}
 sigma(lmer_model_1a_1)
 ```
 
+```{r}
+df_wpm$pred <- predict(lmer_model_1a_1, type = "response")
+```
+
+
+```{r}
+ggplot(df_wpm, aes(x = condition, y = exp(pred), colour = condition)) +
+    stat_summary(fun.y=mean, geom="point", size=2) + 
+    stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.1) +
+    scale_fill_brewer(palette = 3) +
+    labs(x="Condition", y= "Predicted WPM", title = "Predicted WPM for each Condition \n") +
+    theme_bw() +
+    theme(legend.position = "none", plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5), legend.title = element_blank())
+
+```
 
 ```{r}
 # Intercept wpm
