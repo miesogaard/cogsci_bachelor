@@ -1,0 +1,1489 @@
+---
+title: "Eye-Tracking Analysis"
+author: "Mie Buchhave Ryborg"
+date: "11/18/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("~/Dokumenter/AU/5. Bachelor/analysis_e1b")
+```
+
+```{r}
+library("devtools");
+install_github("tmalsburg/scanpath/scanpath", dependencies=TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(magrittr)
+library(scanpath)
+```
+
+
+## Loading data
+
+First, we load all the data that has been saved separately for each condition and story combination (4x5 = 20 combinations).
+
+```{r message=FALSE, warning=FALSE}
+
+f_story_1_control <- as_tibble(read_delim(file = "et_data/fixation_story_1_control.csv", delim = ";"))
+f_story_1_control$condition <- "control"
+f_story_1_control$story <- "1"
+f_story_1_control$manipulation <- "S1_c"
+f_story_1_control$type <- "control"
+
+f_story_2_control <- as_tibble(read_delim(file = "et_data/fixation_story_2_control.csv", delim = ";"))
+f_story_2_control$condition <- "control"
+f_story_2_control$story <- "2"
+f_story_2_control$manipulation <- "S2_c"
+f_story_2_control$type <- "control"
+
+f_story_3_control <- as_tibble(read_delim(file = "et_data/fixation_story_3_control.csv", delim = ";"))
+f_story_3_control$condition <- "control"
+f_story_3_control$story <- "3"
+f_story_3_control$manipulation <- "S3_c"
+f_story_3_control$type <- "control"
+
+f_story_4_control <- as_tibble(read_delim(file = "et_data/fixation_story_4_control.csv", delim = ";"))
+f_story_4_control$condition <- "control"
+f_story_4_control$story <- "4"
+f_story_4_control$manipulation <- "S4_c"
+f_story_4_control$type <- "control"
+
+f_story_1_hfhs <- as_tibble(read_delim(file = "et_data/fixation_story_1_hfhs.csv", delim = ";"))
+f_story_1_hfhs$condition <- "hfhs"
+f_story_1_hfhs$story <- "1"
+f_story_1_hfhs$manipulation <- "S1_hfhs"
+f_story_1_hfhs$type <- "bionic"
+
+f_story_2_hfhs <- as_tibble(read_delim(file = "et_data/fixation_story_2_hfhs.csv", delim = ";"))
+f_story_2_hfhs$condition <- "hfhs"
+f_story_2_hfhs$story <- "2"
+f_story_2_hfhs$manipulation <- "S2_hfhs"
+f_story_2_hfhs$type <- "bionic"
+
+f_story_3_hfhs <- as_tibble(read_delim(file = "et_data/fixation_story_3_hfhs.csv", delim = ";"))
+f_story_3_hfhs$condition <- "hfhs"
+f_story_3_hfhs$story <- "3"
+f_story_3_hfhs$manipulation <- "S3_hfhs"
+f_story_3_hfhs$type <- "bionic"
+
+f_story_4_hfhs <- as_tibble(read_delim(file = "et_data/fixation_story_4_hfhs.csv", delim = ";"))
+f_story_4_hfhs$condition <- "hfhs"
+f_story_4_hfhs$story <- "4"
+f_story_4_hfhs$manipulation <- "S4_hfhs"
+f_story_4_hfhs$type <- "bionic"
+
+f_story_1_hfls <- as_tibble(read_delim(file = "et_data/fixation_story_1_hfls.csv", delim = ";"))
+f_story_1_hfls$condition <- "hfls"
+f_story_1_hfls$story <- "1"
+f_story_1_hfls$manipulation <- "S1_hfls"
+f_story_1_hfls$type <- "bionic"
+
+f_story_2_hfls <- as_tibble(read_delim(file = "et_data/fixation_story_2_hfls.csv", delim = ";"))
+f_story_2_hfls$condition <- "hfls"
+f_story_2_hfls$story <- "2"
+f_story_2_hfls$manipulation <- "S2_hfls"
+f_story_2_hfls$type <- "bionic"
+
+
+f_story_3_hfls <- as_tibble(read_delim(file = "et_data/fixation_story_3_hfls.csv", delim = ";"))
+f_story_3_hfls$condition <- "hfls"
+f_story_3_hfls$story <- "3"
+f_story_3_hfls$manipulation <- "S3_hfls"
+f_story_3_hfls$type <- "bionic"
+
+f_story_4_hfls <- as_tibble(read_delim(file = "et_data/fixation_story_4_hfls.csv", delim = ";"))
+f_story_4_hfls$condition <- "hfls"
+f_story_4_hfls$story <- "4"
+f_story_4_hfls$manipulation <- "S4_hfls"
+f_story_4_hfls$type <- "bionic"
+
+f_story_1_lfhs <- as_tibble(read_delim(file = "et_data/fixation_story_1_lfhs.csv", delim = ";"))
+f_story_1_lfhs$condition <- "lfhs"
+f_story_1_lfhs$story <- "1"
+f_story_1_lfhs$manipulation <- "S1_lfhs"
+f_story_1_lfhs$type <- "bionic"
+
+f_story_2_lfhs <- as_tibble(read_delim(file = "et_data/fixation_story_2_lfhs.csv", delim = ";"))
+f_story_2_lfhs$condition <- "lfhs"
+f_story_2_lfhs$story <- "2"
+f_story_2_lfhs$manipulation <- "S2_lfhs"
+f_story_2_lfhs$type <- "bionic"
+
+f_story_3_lfhs <- as_tibble(read_delim(file = "et_data/fixation_story_3_lfhs.csv", delim = ";"))
+f_story_3_lfhs$condition <- "lfhs"
+f_story_3_lfhs$story <- "3"
+f_story_3_lfhs$manipulation <- "S3_lfhs"
+f_story_3_lfhs$type <- "bionic"
+
+f_story_4_lfhs <- as_tibble(read_delim(file = "et_data/fixation_story_4_lfhs.csv", delim = ";"))
+f_story_4_lfhs$condition <- "lfhs"
+f_story_4_lfhs$story <- "4"
+f_story_4_lfhs$manipulation <- "S4_lfhs"
+f_story_4_lfhs$type <- "bionic"
+
+f_story_1_lfls <- as_tibble(read_delim(file = "et_data/fixation_story_1_lfls.csv", delim = ";"))
+f_story_1_lfls$condition <- "lfls"
+f_story_1_lfls$story <- "1"
+f_story_1_lfls$manipulation <- "S1_lfls"
+f_story_1_lfls$type <- "bionic"
+
+f_story_2_lfls <- as_tibble(read_delim(file = "et_data/fixation_story_2_lfls.csv", delim = ";"))
+f_story_2_lfls$condition <- "lfls"
+f_story_2_lfls$story <- "2"
+f_story_2_lfls$manipulation <- "S2_lfls"
+f_story_2_lfls$type <- "bionic"
+
+f_story_3_lfls <- as_tibble(read_delim(file = "et_data/fixation_story_3_lfls.csv", delim = ";"))
+f_story_3_lfls$condition <- "lfls"
+f_story_3_lfls$story <- "3"
+f_story_3_lfls$manipulation <- "S3_lfls"
+f_story_3_lfls$type <- "bionic"
+
+f_story_4_lfls <- as_tibble(read_delim(file = "et_data/fixation_story_4_lfls.csv", delim = ";"))
+f_story_4_lfls$condition <- "lfls"
+f_story_4_lfls$story <- "4"
+f_story_4_lfls$manipulation <- "S4_lfls"
+f_story_4_lfls$type <- "bionic"
+
+f_df <- rbind(f_story_1_control, f_story_2_control, f_story_3_control, f_story_4_control,
+              f_story_1_hfhs, f_story_2_hfhs, f_story_3_hfhs, f_story_4_hfhs,
+              f_story_1_hfls, f_story_2_hfls, f_story_3_hfls, f_story_4_hfls,
+              f_story_1_lfhs, f_story_2_lfhs, f_story_3_lfhs, f_story_4_lfhs,
+              f_story_1_lfls, f_story_2_lfls, f_story_4_lfls, f_story_3_lfls)
+
+f_story_1_control <- as_tibble(read_delim(file = "et_data/fixation_story_1_control.csv", delim = ";"))
+f_story_1_control$condition <- "control"
+f_story_1_control$story <- "1"
+f_story_1_control$manipulation <- "S1_c"
+f_story_1_control$type <- "control"
+
+f_story_2_control <- as_tibble(read_delim(file = "et_data/fixation_story_2_control.csv", delim = ";"))
+f_story_2_control$condition <- "control"
+f_story_2_control$story <- "2"
+f_story_2_control$manipulation <- "S2_c"
+f_story_2_control$type <- "control"
+
+f_story_3_control <- as_tibble(read_delim(file = "et_data/fixation_story_3_control.csv", delim = ";"))
+f_story_3_control$condition <- "control"
+f_story_3_control$story <- "3"
+f_story_3_control$manipulation <- "S3_c"
+f_story_3_control$type <- "control"
+
+f_story_4_control <- as_tibble(read_delim(file = "et_data/fixation_story_4_control.csv", delim = ";"))
+f_story_4_control$condition <- "control"
+f_story_4_control$story <- "4"
+f_story_4_control$manipulation <- "S4_c"
+f_story_4_control$type <- "control"
+
+f_story_1_hfhs <- as_tibble(read_delim(file = "et_data/fixation_story_1_hfhs.csv", delim = ";"))
+f_story_1_hfhs$condition <- "hfhs"
+f_story_1_hfhs$story <- "1"
+f_story_1_hfhs$manipulation <- "S1_hfhs"
+f_story_1_hfhs$type <- "bionic"
+
+f_story_2_hfhs <- as_tibble(read_delim(file = "et_data/fixation_story_2_hfhs.csv", delim = ";"))
+f_story_2_hfhs$condition <- "hfhs"
+f_story_2_hfhs$story <- "2"
+f_story_2_hfhs$manipulation <- "S2_hfhs"
+f_story_2_hfhs$type <- "bionic"
+
+f_story_3_hfhs <- as_tibble(read_delim(file = "et_data/fixation_story_3_hfhs.csv", delim = ";"))
+f_story_3_hfhs$condition <- "hfhs"
+f_story_3_hfhs$story <- "3"
+f_story_3_hfhs$manipulation <- "S3_hfhs"
+f_story_3_hfhs$type <- "bionic"
+
+f_story_4_hfhs <- as_tibble(read_delim(file = "et_data/fixation_story_4_hfhs.csv", delim = ";"))
+f_story_4_hfhs$condition <- "hfhs"
+f_story_4_hfhs$story <- "4"
+f_story_4_hfhs$manipulation <- "S4_hfhs"
+f_story_4_hfhs$type <- "bionic"
+
+f_story_1_hfls <- as_tibble(read_delim(file = "et_data/fixation_story_1_hfls.csv", delim = ";"))
+f_story_1_hfls$condition <- "hfls"
+f_story_1_hfls$story <- "1"
+f_story_1_hfls$manipulation <- "S1_hfls"
+f_story_1_hfls$type <- "bionic"
+
+f_story_2_hfls <- as_tibble(read_delim(file = "et_data/fixation_story_2_hfls.csv", delim = ";"))
+f_story_2_hfls$condition <- "hfls"
+f_story_2_hfls$story <- "2"
+f_story_2_hfls$manipulation <- "S2_hfls"
+f_story_2_hfls$type <- "bionic"
+
+
+f_story_3_hfls <- as_tibble(read_delim(file = "et_data/fixation_story_3_hfls.csv", delim = ";"))
+f_story_3_hfls$condition <- "hfls"
+f_story_3_hfls$story <- "3"
+f_story_3_hfls$manipulation <- "S3_hfls"
+f_story_3_hfls$type <- "bionic"
+
+f_story_4_hfls <- as_tibble(read_delim(file = "et_data/fixation_story_4_hfls.csv", delim = ";"))
+f_story_4_hfls$condition <- "hfls"
+f_story_4_hfls$story <- "4"
+f_story_4_hfls$manipulation <- "S4_hfls"
+f_story_4_hfls$type <- "bionic"
+
+f_story_1_lfhs <- as_tibble(read_delim(file = "et_data/fixation_story_1_lfhs.csv", delim = ";"))
+f_story_1_lfhs$condition <- "lfhs"
+f_story_1_lfhs$story <- "1"
+f_story_1_lfhs$manipulation <- "S1_lfhs"
+f_story_1_lfhs$type <- "bionic"
+
+f_story_2_lfhs <- as_tibble(read_delim(file = "et_data/fixation_story_2_lfhs.csv", delim = ";"))
+f_story_2_lfhs$condition <- "lfhs"
+f_story_2_lfhs$story <- "2"
+f_story_2_lfhs$manipulation <- "S2_lfhs"
+f_story_2_lfhs$type <- "bionic"
+
+f_story_3_lfhs <- as_tibble(read_delim(file = "et_data/fixation_story_3_lfhs.csv", delim = ";"))
+f_story_3_lfhs$condition <- "lfhs"
+f_story_3_lfhs$story <- "3"
+f_story_3_lfhs$manipulation <- "S3_lfhs"
+f_story_3_lfhs$type <- "bionic"
+
+f_story_4_lfhs <- as_tibble(read_delim(file = "et_data/fixation_story_4_lfhs.csv", delim = ";"))
+f_story_4_lfhs$condition <- "lfhs"
+f_story_4_lfhs$story <- "4"
+f_story_4_lfhs$manipulation <- "S4_lfhs"
+f_story_4_lfhs$type <- "bionic"
+
+f_story_1_lfls <- as_tibble(read_delim(file = "et_data/fixation_story_1_lfls.csv", delim = ";"))
+f_story_1_lfls$condition <- "lfls"
+f_story_1_lfls$story <- "1"
+f_story_1_lfls$manipulation <- "S1_lfls"
+f_story_1_lfls$type <- "bionic"
+
+f_story_2_lfls <- as_tibble(read_delim(file = "et_data/fixation_story_2_lfls.csv", delim = ";"))
+f_story_2_lfls$condition <- "lfls"
+f_story_2_lfls$story <- "2"
+f_story_2_lfls$manipulation <- "S2_lfls"
+f_story_2_lfls$type <- "bionic"
+
+f_story_3_lfls <- as_tibble(read_delim(file = "et_data/fixation_story_3_lfls.csv", delim = ";"))
+f_story_3_lfls$condition <- "lfls"
+f_story_3_lfls$story <- "3"
+f_story_3_lfls$manipulation <- "S3_lfls"
+f_story_3_lfls$type <- "bionic"
+
+f_story_4_lfls <- as_tibble(read_delim(file = "et_data/fixation_story_4_lfls.csv", delim = ";"))
+f_story_4_lfls$condition <- "lfls"
+f_story_4_lfls$story <- "4"
+f_story_4_lfls$manipulation <- "S4_lfls"
+f_story_4_lfls$type <- "bionic"
+
+f_df <- rbind(f_story_1_control, f_story_2_control, f_story_3_control, f_story_4_control,
+              f_story_1_hfhs, f_story_2_hfhs, f_story_3_hfhs, f_story_4_hfhs,
+              f_story_1_hfls, f_story_2_hfls, f_story_3_hfls, f_story_4_hfls,
+              f_story_1_lfhs, f_story_2_lfhs, f_story_3_lfhs, f_story_4_lfhs,
+              f_story_1_lfls, f_story_2_lfls, f_story_4_lfls, f_story_3_lfls)
+
+colnames(f_df)[1] <- 'fixation'
+colnames(f_df)[2] <- 'subject'
+colnames(f_df)[3] <- 'time_ms'
+colnames(f_df)[4] <- 'timegap_ms'
+colnames(f_df)[5] <- 'duration'
+colnames(f_df)[6] <- 'x'
+colnames(f_df)[7] <- 'y'
+colnames(f_df)[8] <- 'pupil_mm_left'
+colnames(f_df)[9] <- 'pupil_mm_right'
+
+f_df[f_df == 'P1a'] <-'P01'
+f_df[f_df == 'P2'] <- 'P02'
+f_df[f_df == 'P3'] <- 'P03'
+f_df[f_df == 'P4'] <- 'P04'
+f_df[f_df == 'P5'] <- 'P05'
+f_df[f_df == 'P6'] <- 'P06'
+f_df[f_df == 'P7'] <- 'P07'
+f_df[f_df == 'P8'] <- 'P08'
+f_df[f_df == 'P9a'] <- 'P09'
+
+colnames(f_df)[1] <- 'fixation'
+colnames(f_df)[2] <- 'subject'
+colnames(f_df)[3] <- 'time_ms'
+colnames(f_df)[4] <- 'timegap_ms'
+colnames(f_df)[5] <- 'duration'
+colnames(f_df)[6] <- 'x'
+colnames(f_df)[7] <- 'y'
+colnames(f_df)[8] <- 'pupil_mm_left'
+colnames(f_df)[9] <- 'pupil_mm_right'
+
+f_df[f_df == 'P1a'] <-'P01'
+f_df[f_df == 'P2'] <- 'P02'
+f_df[f_df == 'P3'] <- 'P03'
+f_df[f_df == 'P4'] <- 'P04'
+f_df[f_df == 'P5'] <- 'P05'
+f_df[f_df == 'P6'] <- 'P06'
+f_df[f_df == 'P7'] <- 'P07'
+f_df[f_df == 'P8'] <- 'P08'
+f_df[f_df == 'P9a'] <- 'P09'
+
+```
+
+
+
+**Finding manipulation**
+Here we combine information on participant, story and condition.
+
+
+```{r}
+df_p01 <- f_df %>%
+  filter(subject == "P01")
+df_p01$manipulation <- paste("P01_",df_p01$manipulation, sep = "")
+
+df_p02 <- f_df %>%
+  filter(subject == "P02")
+df_p02$manipulation <- paste("P02_",df_p02$manipulation, sep = "")
+
+df_p03 <- f_df %>%
+  filter(subject == "P03")
+df_p03$manipulation <- paste("P03_",df_p03$manipulation, sep = "")
+
+df_p04 <- f_df %>%
+  filter(subject == "P04")
+df_p04$manipulation <- paste("P04_",df_p04$manipulation, sep = "")
+
+df_p05 <- f_df %>%
+  filter(subject == "P05")
+df_p05$manipulation <- paste("P05_",df_p05$manipulation, sep = "")
+
+df_p06 <- f_df %>%
+  filter(subject == "P06")
+df_p06$manipulation <- paste("P06_",df_p06$manipulation, sep = "")
+
+df_p07 <- f_df %>%
+  filter(subject == "P07")
+df_p07$manipulation <- paste("P07_",df_p07$manipulation, sep = "")
+
+df_p08 <- f_df %>%
+  filter(subject == "P08")
+df_p08$manipulation <- paste("P08_",df_p08$manipulation, sep = "")
+
+df_p09 <- f_df %>%
+  filter(subject == "P09")
+df_p09$manipulation <- paste("P09_",df_p09$manipulation, sep = "")
+
+df_p10 <- f_df %>%
+  filter(subject == "P10")
+df_p10$manipulation <- paste("P10_", df_p10$manipulation, sep = "")
+
+```
+
+
+```{r message=FALSE, warning=FALSE}
+
+# Combining all above data frames
+
+f_df_new <- rbind(df_p01, df_p02, df_p03, df_p04, df_p05, df_p06, df_p07, df_p08, df_p09, df_p10)
+
+```
+
+```{r}
+
+# Making a variable containing all subject ID's for loops
+
+participants <- c("P01", "P02", "P03", "P04", "P05", "P06", "P07", "P08", "P09", "P10")
+
+```
+
+### Cleaning a bit on fixations
+
+```{r}
+# Remove fixations before participants begin to read
+
+f_df_new_2 <- f_df_new[1,]
+
+
+for (p in participants) {
+
+  df_p <- f_df_new %>%
+    filter(subject == p) %>%
+    group_by(manipulation) %>%
+    summarise(mean(duration))
+  
+  for (c in df_p$manipulation) {
+    df_p_s <- f_df_new %>%
+        filter(subject == p, manipulation == c)
+
+    if (df_p_s$x[1] > df_p_s$x[2]) {
+      df_p_s_1 <- df_p_s[-c(1), ]
+      df_p_s_1$fixation <- df_p_s_1$fixation -1
+  
+    } else {
+      df_p_s_1 <- df_p_s
+    } 
+    if (df_p_s$x[1] > df_p_s$x[2]) {
+      df_p_s_1 <- df_p_s[-c(1), ]
+      df_p_s_1$fixation <- df_p_s_1$fixation -1
+    }
+    if (df_p_s$x[1] > df_p_s$x[2]) {
+      df_p_s_1 <- df_p_s[-c(1), ]
+      df_p_s_1$fixation <- df_p_s_1$fixation -1
+    }
+  
+    df_p_s_1$time_ms <- df_p_s_1$time_ms - min(df_p_s_1$time_ms)
+    df_p_s_1$timegap_ms[1] <- 0
+    
+    f_df_new_2 <- rbind(f_df_new_2, df_p_s_1)
+  }
+}
+
+f_df_new_2 <- f_df_new_2[-c(1),]
+```
+
+
+```{r}
+# How many data points are removed
+(length(f_df_new$subject) - length(f_df_new_2$subject))
+
+
+# Percentage of data points removed
+(length(f_df_new$subject) - length(f_df_new_2$subject)) / length(f_df_new$subject) * 100
+
+```
+
+```{r}
+# Updating main data frame
+f_df_new <- f_df_new_2
+
+
+# Reversing y
+f_df_new$y <- f_df_new$y* -1 + max(f_df_new$y)
+
+
+```
+
+
+## Plotting Scanpaths
+
+```{r}
+
+f_df_hfhs <- f_df_new %>%
+  filter(condition == "hfhs" | condition == "control")
+
+df_hfhs_final <- f_df_hfhs %>%
+  filter(condition == "hfhs")
+
+
+for (p in participants) {
+  df_filter <- f_df_hfhs %>%
+    filter(subject == p & condition == "hfhs")
+  
+  story_n <- df_filter$story[1]
+  
+  df_hfhs_almost <- f_df_hfhs %>%
+    filter(subject == p & condition == "control", story == story_n)
+  
+  df_hfhs_final <- rbind(df_hfhs_final, df_hfhs_almost)
+}
+
+df_hfhs_final <- df_hfhs_final %>%
+  mutate(cond_spec = case_when(
+    grepl("control", condition) ~ "control_hfhs",
+    grepl("hfhs", condition) ~ "hfhs")
+  )
+
+# Scanpath for each <- in HFHS
+
+for (p in participants) {
+  
+  df_hfhs_final_p <- df_hfhs_final %>%
+    filter(subject == p)
+  
+  
+  scanplot <- plot_scanpaths(df_hfhs_final_p, duration ~ x | condition) +
+          theme_minimal() +
+          ggtitle(paste("\n Scanpath for", p, ("(HFHS) \n"))) +
+          theme(plot.title = element_text(hjust = 0.5))
+    
+  p_filename <- paste(p, "_hfhs.pdf", sep = "")
+  
+  ggsave(p_filename, scanplot, path = "visualization/hfhs_individual" )
+  
+}
+
+# Scanpath for all HFHS
+
+scanplot <- plot_scanpaths(df_hfhs_final, duration ~ x | manipulation, subject) +
+          theme_bw() +
+          ggtitle(paste("\n Scanpath for HFHS \n")) +
+          theme(plot.title = element_text(hjust = 0.5))
+
+p_filename <- "all_hfhs.pdf"
+ggsave(p_filename, scanplot, path = "visualization" )
+
+
+scanplot <- plot_scanpaths(df_hfhs_final, duration ~ fixation | manipulation, subject) +
+          ggtitle(paste("\n Scanpath for HFHS \n")) +
+          theme(plot.title = element_text(hjust = 0.5))
+
+
+p_filename <- "all_hfhs_fixation.pdf"
+ggsave(p_filename, scanplot, path = "visualization" )
+
+```
+
+```{r}
+# Scanpath for each participant in HFLS
+f_df_hfls <- f_df_new %>%
+  filter(condition == "hfls" | condition == "control")
+
+df_hfls_final <- f_df_hfls %>%
+  filter(condition == "hfls")
+
+
+for (p in participants) {
+  df_filter <- f_df_hfls %>%
+    filter(subject == p & condition == "hfls")
+  
+  story_n <- df_filter$story[1]
+  
+  df_hfls_almost <- f_df_hfls %>%
+    filter(subject == p & condition == "control", story == story_n)
+  
+  df_hfls_final <- rbind(df_hfls_final, df_hfls_almost)
+
+}
+
+df_hfls_final <- df_hfls_final %>%
+  mutate(cond_spec = case_when(
+    grepl("control", condition) ~ "control_hfls",
+    grepl("hfls", condition) ~ "hfls")
+  )
+
+
+for (p in participants) {
+  df_hfls_final_p <- df_hfls_final %>%
+    filter(subject == p)
+  
+  
+  scanplot <- plot_scanpaths(df_hfls_final_p, duration ~ x | manipulation) +
+          theme_minimal() +
+          ggtitle(paste("\n Scanpath for", p, ("(HFLS) \n"))) +
+          theme(plot.title = element_text(hjust = 0.5))
+    
+  p_filename <- paste(p, "_hfls.pdf", sep = "")
+  
+  ggsave(p_filename, scanplot, path = "visualization/hfls_individual" )
+  
+}
+
+# Scanpath for all HFLS
+
+scanplot <- plot_scanpaths(df_hfls_final, duration ~ x | manipulation, subject) +
+          theme_bw() +
+          ggtitle(paste("\n Scanpath for HFLS \n")) +
+          theme(plot.title = element_text(hjust = 0.5))
+
+p_filename <- "all_hfls.pdf"
+  
+ggsave(p_filename, scanplot, path = "visualization" )
+
+
+scanplot <- plot_scanpaths(df_hfls_final, duration ~ fixation | manipulation, subject) +
+          theme_bw() +
+          ggtitle(paste("\n Scanpath for HFLS \n")) +
+          theme(plot.title = element_text(hjust = 0.5))
+
+p_filename <- "all_hfls_fixation.pdf"
+  
+ggsave(p_filename, scanplot, path = "visualization" )
+
+```
+
+```{r}
+
+# Scanpath for each participant in LFHS
+
+f_df_lfhs <- f_df_new %>%
+  filter(condition == "lfhs" | condition == "control")
+
+df_lfhs_final <- f_df_lfhs %>%
+  filter(condition == "lfhs")
+
+
+for (p in participants) {
+  df_filter <- f_df_lfhs %>%
+    filter(subject == p & condition == "lfhs")
+  
+  story_n <- df_filter$story[1]
+  
+  df_lfhs_almost <- f_df_lfhs %>%
+    filter(subject == p & condition == "control", story == story_n)
+  
+  df_lfhs_final <- rbind(df_lfhs_final, df_lfhs_almost)
+
+}
+
+df_lfhs_final <- df_lfhs_final %>%
+  mutate(cond_spec = case_when(
+    grepl("control", condition) ~ "control_lfhs",
+    grepl("lfhs", condition) ~ "lfhs")
+  )
+
+for (p in participants) {
+  df_lfhs_final_p <- df_lfhs_final %>%
+    filter(subject == p)
+  
+  
+  scanplot <- plot_scanpaths(df_lfhs_final_p, duration ~ x | manipulation) +
+          theme_minimal() +
+          ggtitle(paste("\n Scanpath for", p, ("(LFHS) \n"))) +
+          theme(plot.title = element_text(hjust = 0.5))
+    
+  p_filename <- paste(p, "_lfhs.pdf", sep = "")
+  
+  ggsave(p_filename, scanplot, path = "visualization/lfhs_individual" )
+  
+}
+
+# Scanpath for all HFHS
+
+scanplot <- plot_scanpaths(df_lfhs_final, duration ~ x | manipulation, subject) +
+          theme_bw() +
+          ggtitle(paste("\n Scanpath for LFHS \n")) +
+          theme(plot.title = element_text(hjust = 0.5))
+
+p_filename <- "all_lfhs.pdf"
+ggsave(p_filename, scanplot, path = "visualization" )
+
+
+scanplot <- plot_scanpaths(df_lfhs_final, duration ~ fixation | manipulation, subject) +
+          theme_bw() +
+          ggtitle(paste("\n Scanpath for LFHS \n")) +
+          theme(plot.title = element_text(hjust = 0.5))
+
+p_filename <- "all_lfhs_fixation.pdf"
+  
+ggsave(p_filename, scanplot, path = "visualization" )
+```
+
+
+```{r}
+# Scanpath for each participant in LFLS
+f_df_lfls <- f_df_new %>%
+  filter(condition == "lfls" | condition == "control")
+
+df_lfls_final <- f_df_lfls %>%
+  filter(condition == "lfls")
+
+
+for (p in participants) {
+  df_filter <- f_df_lfls %>%
+    filter(subject == p & condition == "lfls")
+  
+  story_n <- df_filter$story[1]
+  
+  df_lfls_almost <- f_df_lfls %>%
+    filter(subject == p & condition == "control", story == story_n)
+  
+  df_lfls_final <- rbind(df_lfls_final, df_lfls_almost)
+}
+
+df_lfls_final <- df_lfls_final %>%
+  mutate(cond_spec = case_when(
+    grepl("control", condition) ~ "control_lfls",
+    grepl("lfls", condition) ~ "lfls")
+  )
+
+
+for (p in participants) {
+  df_lfls_final_p <- df_lfls_final %>%
+    filter(subject == p)
+  
+  
+  scanplot <- plot_scanpaths(df_lfls_final_p, duration ~ x | manipulation) +
+          theme_minimal() +
+          ggtitle(paste("\n Scanpath for", p, ("(LFLS) \n"))) +
+          theme(plot.title = element_text(hjust = 0.5))
+    
+  p_filename <- paste(p, "_lfls.pdf", sep = "")
+  
+  ggsave(p_filename, scanplot, path = "visualization/lfls_individual" )
+  
+}
+
+# Scanpath for all LFLS
+
+scanplot <- plot_scanpaths(df_lfls_final, duration ~ x | manipulation, subject) +
+          theme_bw() +
+          ggtitle(paste("\n Scanpath for LFLS \n")) +
+          theme(plot.title = element_text(hjust = 0.5))
+
+p_filename <- "all_lfls.pdf"
+ggsave(p_filename, scanplot, path = "visualization" )
+
+
+scanplot <- plot_scanpaths(df_lfls_final, duration ~ fixation | manipulation, subject) +
+          theme_bw() +
+          ggtitle(paste("\n Scanpath for LFLS \n")) +
+          theme(plot.title = element_text(hjust = 0.5))
+
+p_filename <- "all_lfls_fixation.pdf"
+ggsave(p_filename, scanplot, path = "visualization" )
+
+```
+
+```{r}
+df_all_final <- rbind(df_hfhs_final, df_hfls_final, df_lfhs_final, df_lfls_final)
+```
+
+```{r}
+
+df_all_final <- df_all_final %>%
+  mutate(manipulation_group = case_when(
+    grepl("hfhs", cond_spec) ~ "hfhs",
+    grepl("hfls", cond_spec) ~ "hfls",
+    grepl("lfhs", cond_spec) ~ "lfhs",
+    grepl("lfls", cond_spec) ~ "lfls"
+  ))
+```
+
+```{r}
+
+df_all_final %>%
+  group_by(cond_spec) %>%
+  summarise(mean = mean(duration), 
+            sd = sd(duration))
+
+```
+
+*The time that was spent looking at different things of course depends on the duration of the two compared trials. (total duration of the two compared scanpaths constitutes an upper bound). This means that two long scanpaths may have a larger dissimilarity than two shorter scanpaths even if they look more similar. This is undesirable. One way to get rid of the trivial influence of total duration is to normalize the dissimilarity scores. For example, we can divide them by the total duration of the two compared scanpaths:*
+
+```{r}
+for (p in participants) {
+  p_df <- df_all_final %>%
+    filter(subject == p)
+  d2 <- scasim(p_df, duration ~ x + y | manipulation, 512, 512, 60, 1/30,
+             normalize="durations")
+  scasim_matrix <- round(d2*100)
+  
+  scasim_p <- c(scasim_matrix[2], scasim_matrix[20], scasim_matrix[38], scasim_matrix[56])
+  
+  p_df <- p_df %>%
+    group_by(story, manipulation_group) %>%
+    summarise(mean(duration)) %>%
+    mutate(subject = p,)
+  
+  p_df$scasim <- scasim_p
+  
+  if (p == "P01") {
+    df_scasim <- p_df
+  } else {
+    df_scasim <- rbind(df_scasim, p_df)
+  }
+  
+
+}
+
+df_scasim
+```
+The scasim number can be interpreted as the percentage of time that was spent looking at different things.
+
+The numbers in the matrix above capture a lot of information about the scanpath variance in the data set. However, dissimilarity scores are somewhat tricky to analyze. One problem is that these values have strong statistical dependencies. When we change one scanpath, this affects n dissimilarity scores. This has to be kept in mind when doing inferential stats directly on the dissimilarity scores. While there are solutions for this, it is typically more convenient to produce a representation of scanpath variance that is free from this problem. One such representation is what we call the “map of scanpath space.” On such a map, every point represents a scanpath and the distances on the map reflect the dissimilarities according to our scanpath measure, i.e. the dissimilarity scores in the matrix above.
+
+
+```{r}
+# Clustering stories
+test_df <- df_all_final
+
+for (r in 1:length(test_df$subject)) {
+  if (test_df$condition[r] == "control") {
+    test_df$condition[r] <- "C"
+  }
+}
+
+test_df <- test_df %>%
+  mutate(manipulation_no_p = substr(manipulation, 5, nchar(manipulation)),
+         subject_no = substr(subject, 2, 3))
+
+
+test_df <- test_df %>%
+  filter(story == 1)
+
+d2 <- scasim(test_df, duration ~ x + y | manipulation, 512, 512, 60, 1/30, normalize="durations")
+scasim_matrix <- round(d2*100)
+
+new_test_df <- test_df %>%
+group_by(subject_no, manipulation, condition, manipulation_no_p, story) %>%
+summarise(mean(duration))
+
+manipulation_names <- new_test_df$manipulation_no_p
+condition_names <- new_test_df$condition
+story_names <- new_test_df$story
+
+map <- cmdscale(d2)
+round(map, 2)
+
+set.seed(4)
+#clusters <- kmeans(map, 5, iter.max=100)
+#plot(map, cex=4, col=clusters$cluster, pch=19)
+#text(map, labels=manipulation_names, col="white", cex=0.6)
+#points(clusters$centers, col="blue", pch=3, cex=3)
+
+par(mfrow = c(1, 2))
+
+clusters <- kmeans(map, 5, iter.max=1000)
+
+plot(map, cex=6, col=clusters$cluster, pch=19)
+text(map, labels=condition_names, col="white", cex=1)
+points(clusters$centers, col="blue", pch=3, cex=3)
+
+plot(map, cex=6, col=clusters$cluster, pch=19)
+text(map, labels=new_test_df$subject_no, col="white", cex=1)
+points(clusters$centers, col="blue", pch=3, cex=3)
+
+
+```
+
+
+
+### Calculating the cost between readings for each control-manipulation pair
+
+
+```{r message=FALSE, warning=FALSE}
+
+count <- 1
+hfhs_cost <- c()
+
+for (p in participants) {
+
+  subsetting <- subset(df_hfhs_final, subject==p)
+  s <- subset(subsetting, condition=="control")
+  t <- subset(subsetting, condition!="control")
+  alignment <- rscasim(s, t, duration ~ x + y | condition,
+                     512, 512, 60, 1/30)
+  
+
+  align_plot <- plot_alignment(s, t, alignment, duration ~ x + y | condition, 10, 10)
+  
+  p_filename <- paste("align_", p, "_hfhs.pdf", sep = "")
+  
+  ggsave(p_filename, align_plot, path = "visualization/alignment" )
+
+  length_align <- length(alignment$cost)
+
+  df_alignment <- alignment %>%
+    filter(is.na(t) | is.na(s)) %>%
+    summarise(count = n(), proportion = count / length_align * 100, length_align = length_align)
+
+  df_alignment$condition <- "hfhs"
+  df_alignment$subject <-  p
+  df_alignment$cost <- sum(alignment$cost)
+  df_alignment$s_total <- max(alignment$s[!is.na(alignment$s)])
+  df_alignment$t_total <- max(alignment$t[!is.na(alignment$t)])
+  df_alignment$s_unaligned <- length(alignment$s[is.na(alignment$t)])
+  df_alignment$t_unaligned <- length(alignment$t[is.na(alignment$s)])
+  
+  if (count == 1) {
+    df_hfhs_alignment <- df_alignment
+  } else {
+    df_hfhs_alignment <- rbind(df_hfhs_alignment, df_alignment)
+  }
+  
+  count <- count + 1
+  
+  
+}
+
+```
+
+```{r message=FALSE, warning=FALSE}
+
+count <- 1
+
+for (p in participants) {
+
+  subsetting <- subset(df_hfls_final, subject==p)
+  s <- subset(subsetting, condition=="control")
+  t <- subset(subsetting, condition!="control")
+  alignment <- rscasim(s, t, duration ~ x + y | condition,
+                     512, 512, 60, 1/30)
+  
+  align_plot <- plot_alignment(s, t, alignment, duration ~ x + y | condition, 10, 10)
+  
+  p_filename <- paste("align_", p, "_hfls.pdf", sep = "")
+  
+  ggsave(p_filename, align_plot, path = "visualization/alignment" )
+
+  length_align <- length(alignment$cost)
+
+  df_alignment <- alignment %>%
+    filter(is.na(t) | is.na(s)) %>%
+    summarise(count = n(), proportion = count / length_align * 100, length_align = length_align)
+  
+  df_alignment$condition <- "hfls"
+  df_alignment$subject <-  p
+  df_alignment$cost <- sum(alignment$cost)
+  df_alignment$s_total <- max(alignment$s[!is.na(alignment$s)])
+  df_alignment$t_total <- max(alignment$t[!is.na(alignment$t)])
+  df_alignment$s_unaligned <- length(alignment$s[is.na(alignment$t)])
+  df_alignment$t_unaligned <- length(alignment$t[is.na(alignment$s)])
+  
+  if (count == 1) {
+    df_hfls_alignment <- df_alignment
+  } else {
+    df_hfls_alignment <- rbind(df_hfls_alignment, df_alignment)
+  }
+  
+  count <- count + 1
+
+}
+
+```
+
+
+```{r message=FALSE, warning=FALSE}
+count <-  1
+for (p in participants) {
+
+  subsetting <- subset(df_lfhs_final, subject==p)
+  s <- subset(subsetting, condition=="control")
+  t <- subset(subsetting, condition!="control")
+  alignment <- rscasim(s, t, duration ~ x + y | condition,
+                     512, 512, 60, 1/30)
+
+  align_plot <- plot_alignment(s, t, alignment, duration ~ x + y | condition, 10, 10)
+  
+  p_filename <- paste("align_", p, "_lfhs.pdf", sep = "")
+  
+  ggsave(p_filename, align_plot, path = "visualization/alignment" )
+
+  length_align <- length(alignment$cost)
+
+  df_alignment <- alignment %>%
+    filter(is.na(t) | is.na(s)) %>%
+    summarise(count = n(), proportion = count / length_align * 100, length_align = length_align)
+  
+  df_alignment$condition <- "lfhs"
+  df_alignment$subject <-  p
+  df_alignment$cost <- sum(alignment$cost)
+  df_alignment$s_total <- max(alignment$s[!is.na(alignment$s)])
+  df_alignment$t_total <- max(alignment$t[!is.na(alignment$t)])
+  df_alignment$s_unaligned <- length(alignment$s[is.na(alignment$t)])
+  df_alignment$t_unaligned <- length(alignment$t[is.na(alignment$s)])
+
+  
+  if (count == 1) {
+    df_lfhs_alignment <- df_alignment
+  } else {
+    df_lfhs_alignment <- rbind(df_lfhs_alignment, df_alignment)
+  }
+  
+  count <- count + 1
+
+}
+
+```
+
+
+
+```{r message=FALSE, warning=FALSE}
+
+count <- 1
+
+for (p in participants) {
+
+  subsetting <- subset(df_lfls_final, subject==p)
+  s <- subset(subsetting, condition=="control")
+  t <- subset(subsetting, condition!="control")
+  alignment <- rscasim(s, t, duration ~ x + y | condition,
+                     512, 512, 60, 1/30)
+  
+  align_plot <- plot_alignment(s, t, alignment, duration ~ x + y | condition, 10, 10)
+  
+  p_filename <- paste("align_", p, "_lfls.pdf", sep = "")
+  
+  ggsave(p_filename, align_plot, path = "visualization/alignment" )
+
+  length_align <- length(alignment$cost)
+
+  df_alignment <- alignment %>%
+    filter(is.na(t) | is.na(s)) %>%
+    summarise(count = n(), proportion = count / length_align * 100, length_align = length_align)
+  
+  df_alignment$condition <- "lfls"
+  df_alignment$subject <-  p
+  df_alignment$cost <- sum(alignment$cost)
+  df_alignment$s_total <- max(alignment$s[!is.na(alignment$s)])
+  df_alignment$t_total <- max(alignment$t[!is.na(alignment$t)])
+  df_alignment$s_unaligned <- length(alignment$s[is.na(alignment$t)])
+  df_alignment$t_unaligned <- length(alignment$t[is.na(alignment$s)])
+  
+  if (count == 1) {
+    df_lfls_alignment <- df_alignment
+  } else {
+    df_lfls_alignment <- rbind(df_lfls_alignment, df_alignment)
+  }
+  
+  count <- count + 1
+
+}
+
+```
+
+
+
+
+```{r}
+
+# proportion is the percentage of fixations that are not aligned - if one makes 39 fixations in each condition, but 8 are not aligned, it becomes 8 / (8 + 39) * 100
+
+
+# Length align = number of unique fixation points across condition-manipulation pair
+# s_total = number of unique fixation points present in control
+# t_total = number of unique fixation points present in manipulation
+# s_unaligned = number of unique fixation points only present in control
+# t_unaligned = number of unique fixation points only present in manipulation
+# Count = total number of unique fixation points only present in either control or manipulation
+
+df_all_alignment <- rbind(df_hfhs_alignment, df_hfls_alignment, df_lfhs_alignment, df_lfls_alignment)
+df_all_alignment <- df_all_alignment %>%
+  mutate(st_diff = t_total - s_total)
+
+```
+
+
+```{r}
+
+ggplot(df_all_alignment, aes(x = condition, y = count, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Total Number of Fixations Not Matching", subtitle = "Between Control-Manipulation Pairs") +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5)) +
+  ylim(0, 30)
+
+```
+
+
+```{r}
+# Out of all unique fixation points, how many fixation occured only in one of the condition-manipulation pairs?
+
+ggplot(df_all_alignment, aes(x = condition, y = proportion, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Proportion of Fixations Not Matching", subtitle = "Between Control-Manipulation Pairs", y = "Proportion (%)", x = "Control-Manipulation Pairs") +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5), legend.position = "none") +
+  ylim(10, 40)
+
+```
+
+```{r}
+df_all_alignment %>%
+  group_by(condition) %>%
+  summarise(mean(proportion), sd(proportion))
+```
+
+
+```{r}
+ggplot(df_all_alignment, aes(x = condition, y = proportion, color = condition)) +
+  stat_summary(fun.y=mean, geom="point", size=2) + 
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.1) +
+  labs(title = "Mean Proportion of Fixations Not Matching", subtitle = "Between Control-Manipulation Pairs", x = "Condition", y = "Proportion (percentage)") +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5), legend.position = "none") +
+  coord_cartesian(ylim=c(22, 30))
+
+```
+
+#### Visualizing the total cost across conditions per participant
+
+```{r}
+ggplot(df_all_alignment, aes(x = condition, y = cost/length_align, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Average Cost Per Fixation", subtitle = "Between Control-Manipulation Pairs", y = "Average Cost", x = "Condition-Manipulation Pair") +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5), legend.position = "none")
+
+df_all_alignment %>% 
+  summarise(mean = mean(cost/length_align), sd = sd(cost/length_align))
+```
+
+
+### Investigating the difference between each control-manipulation pair
+
+```{r}
+df_et_wpm <- df_all_final %>%
+  group_by(manipulation, subject, story, condition, manipulation_group, cond_spec) %>%
+  summarise(time_ms = max(time_ms))
+
+df_et_wpm$time_s <- df_et_wpm$time_ms / 1000
+
+df_et_wpm <- df_et_wpm %>%
+  mutate(wpm = case_when(
+    grepl("1", story) ~ 100 / (time_s / 60),
+    grepl("2", story) ~ 103 / (time_s / 60),
+    grepl("3", story) ~ 96 / (time_s / 60),
+    grepl("4", story) ~ 101 / (time_s / 60),
+  ))
+
+df_et_wpm %>%
+  group_by(cond_spec) %>%
+  summarise(mean(wpm), sd(wpm))
+```
+
+
+```{r}
+
+plot_1 <- df_et_wpm %>%
+  filter(manipulation_group == "hfhs") %>%
+  ggplot(aes(x = condition, y = wpm, fill = condition)) +
+  stat_boxplot( aes(condition, wpm), geom='errorbar', linetype=1, width=0.2)+  #whiskers
+  geom_boxplot( aes(condition, wpm),outlier.shape=4) +    
+  stat_summary(fun.y=mean, geom="point", size=2) + 
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.1) +
+  scale_fill_brewer(palette = 1) +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "HFHS", y = "WPM") +
+  coord_cartesian(ylim = c(100, 320))
+
+
+plot_2 <- df_et_wpm %>%
+  filter(manipulation_group == "hfls") %>%
+  ggplot(aes(x = condition, y = wpm, fill = condition)) +
+  stat_boxplot( aes(condition, wpm), geom='errorbar', linetype=1, width=0.2)+  #whiskers
+  geom_boxplot( aes(condition, wpm),outlier.shape=4) +    
+  stat_summary(fun.y=mean, geom="point", size=2) + 
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.1) +
+  scale_fill_brewer(palette = 1) +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "HFLS", y = "WPM") +
+  coord_cartesian(ylim = c(100, 320))
+
+
+plot_3 <- df_et_wpm %>%
+  filter(manipulation_group == "lfhs") %>%
+  ggplot(aes(x = condition, y = wpm, fill = condition)) +
+  stat_boxplot( aes(condition, wpm), geom='errorbar', linetype=1, width=0.2)+  #whiskers
+  geom_boxplot( aes(condition, wpm),outlier.shape=4) +    
+  stat_summary(fun.y=mean, geom="point", size=2) + 
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.1) +
+  scale_fill_brewer(palette = 1) +
+  theme_bw() +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "LFHS", y = "WPM") +
+  coord_cartesian(ylim = c(100, 320))
+
+
+plot_4 <- df_et_wpm %>%
+  filter(manipulation_group == "lfls") %>%
+  ggplot(aes(x = condition, y = wpm, fill = condition)) +
+  stat_boxplot( aes(condition, wpm), geom='errorbar', linetype=1, width=0.2)+  #whiskers
+  geom_boxplot( aes(condition, wpm),outlier.shape=4) +    
+  stat_summary(fun.y=mean, geom="point", size=2) + 
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.1) +
+  scale_fill_brewer(palette = 1) +
+  theme_bw() +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "LFLS", y = "WPM") +
+  coord_cartesian(ylim = c(100, 320))
+
+
+duration_plot <- gridExtra::grid.arrange(plot_1, plot_2, plot_3, plot_4, nrow = 2)
+
+p_filename <- "all_wpm_boxplot.pdf"
+  
+ggsave(p_filename, duration_plot, path = "visualization" )
+
+```
+
+
+```{r}
+time_line_plot_1 <- df_et_wpm %>%
+  filter(manipulation_group == "hfhs") %>%
+  ggplot(aes(x = condition, y = wpm, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "HFHS", y = "WPM")
+
+
+time_line_plot_2 <- df_et_wpm %>%
+  filter(manipulation_group == "hfls") %>%
+  ggplot(aes(x = condition, y = wpm, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "HFLS", y = "WPM")
+
+
+time_line_plot_3 <- df_et_wpm %>%
+  filter(manipulation_group == "lfhs") %>%
+  ggplot(aes(x = condition, y = wpm, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "LFHS", y = "WPM")
+
+
+time_line_plot_4 <- df_et_wpm %>%
+  filter(manipulation_group == "lfls") %>%
+  ggplot(aes(x = condition, y = wpm, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "LFLS", y = "WPM")
+
+duration_plot_line <- gridExtra::grid.arrange(time_line_plot_1, time_line_plot_2, time_line_plot_3, time_line_plot_4, nrow = 2)
+
+p_filename <- "all_wpm_line.pdf"
+  
+ggsave(p_filename, duration_plot_line, path = "visualization" )
+
+```
+```{r}
+
+df_mean_duration <- df_all_final %>%
+  group_by(subject, cond_spec, manipulation_group, condition) %>%
+  summarise(mean_duration = mean(duration), 
+            sd_duration = sd(duration))
+
+```
+
+```{r}
+time_line_plot_1 <- df_mean_duration %>%
+  filter(manipulation_group == "hfhs") %>%
+  ggplot(aes(x = condition, y = mean_duration, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "HFHS", y = "Time (ms)")
+
+
+time_line_plot_2 <- df_mean_duration %>%
+  filter(manipulation_group == "hfls") %>%
+  ggplot(aes(x = condition, y = mean_duration, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "HFLS", y = "Time (ms)")
+
+
+time_line_plot_3 <- df_mean_duration %>%
+  filter(manipulation_group == "lfhs") %>%
+  ggplot(aes(x = condition, y = mean_duration, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "LFHS", y = "Time (ms)")
+
+
+time_line_plot_4 <- df_mean_duration %>%
+  filter(manipulation_group == "lfls") %>%
+  ggplot(aes(x = condition, y = mean_duration, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "LFLS", y = "Time (ms)")
+
+duration_plot_line <- gridExtra::grid.arrange(time_line_plot_1, time_line_plot_2, time_line_plot_3, time_line_plot_4, nrow = 2)
+
+p_filename <- "all_duration_line.pdf"
+  
+ggsave(p_filename, duration_plot_line, path = "visualization" )
+
+```
+
+
+```{r}
+df_et_wpm %>%
+  group_by(cond_spec) %>%
+  summarise(mean(wpm), sd(wpm))
+```
+
+```{r}
+f_df_fixation_count <- df_all_final %>%
+  group_by(manipulation, type, subject, story, condition, manipulation_group, cond_spec) %>%
+  summarise(n_fixations = n())
+
+```
+
+
+Next, we will count how many fixations each subject makes.
+
+
+```{r}
+# Count summary (mean and sd)
+
+# Calculate count based on number of words
+f_df_fixation_count <- f_df_fixation_count %>%
+  mutate(count_word = case_when(
+    grepl("1", story) ~ n_fixations/100*100,
+    grepl("2", story) ~ n_fixations/103*100,
+    grepl("3", story) ~ n_fixations/96*100,
+    grepl("4", story) ~ n_fixations/101*100
+  ))
+```
+
+
+
+```{r}
+# Descriptive Fixation Count
+
+f_df_fixation_count %>%
+  group_by(cond_spec) %>%
+  summarise(mean(count_word), sd(count_word))
+
+```
+
+
+```{r}
+plot_1 <- f_df_fixation_count %>%
+  filter(manipulation_group == "hfhs") %>%
+  ggplot(aes(x = condition, y = count_word, fill = condition)) +
+  stat_boxplot( aes(condition, count_word), geom='errorbar', linetype=1, width=0.2)+  #whiskers
+  geom_boxplot( aes(condition, count_word),outlier.shape=4) +    
+  stat_summary(fun.y=mean, geom="point", size=2) + 
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.1) +
+  scale_fill_brewer(palette = 1) +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "HFHS", y = "Number of fixations") +
+  coord_cartesian(ylim=c(35, 64))
+
+
+plot_2 <- f_df_fixation_count %>%
+  filter(manipulation_group == "hfls") %>%
+  ggplot(aes(x = condition, y = count_word, fill = condition)) +
+  stat_boxplot( aes(condition, count_word), geom='errorbar', linetype=1, width=0.2) +
+  geom_boxplot( aes(condition, count_word),outlier.shape=4) +    
+  stat_summary(fun.y=mean, geom="point", size=2) + 
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.1) +
+  scale_fill_brewer(palette = 1) +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "HFLS", y = "Number of fixations") +
+  coord_cartesian(ylim=c(35, 64))
+
+
+plot_3 <- f_df_fixation_count %>%
+  filter(manipulation_group == "lfhs") %>%
+  ggplot(aes(x = condition, y = count_word, fill = condition)) +
+  stat_boxplot( aes(condition, count_word), geom='errorbar', linetype=1, width=0.2) +
+  geom_boxplot( aes(condition, count_word),outlier.shape=4) +    
+  stat_summary(fun.y=mean, geom="point", size=2) + 
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.1) +
+  scale_fill_brewer(palette = 1) +
+  theme_bw() +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "LFHS", y = "Number of fixations") +
+  coord_cartesian(ylim=c(35, 64))
+
+
+plot_4 <- f_df_fixation_count %>%
+  filter(manipulation_group == "lfls") %>%
+  ggplot(aes(x = condition, y = count_word, fill = condition)) +
+  stat_boxplot( aes(condition, count_word), geom='errorbar', linetype=1, width=0.2) +
+  geom_boxplot( aes(condition, count_word),outlier.shape=4) +    
+  stat_summary(fun.y=mean, geom="point", size=2) + 
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.1) +
+  scale_fill_brewer(palette = 1) +
+  theme_bw() +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "LFLS", y = "Number of fixations") +
+  coord_cartesian(ylim=c(35, 64))
+
+
+fixation_plot <- gridExtra::grid.arrange(plot_1, plot_2, plot_3, plot_4, nrow = 2)
+
+p_filename <- "all_fixation_count.pdf"
+  
+ggsave(p_filename, fixation_plot, path = "visualization" )
+```
+
+
+```{r}
+time_line_plot_1 <- f_df_fixation_count %>%
+  filter(manipulation_group == "hfhs") %>%
+  ggplot(aes(x = condition, y = count_word, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "HFHS", y = "Number of fixations")
+
+
+time_line_plot_2 <- f_df_fixation_count %>%
+  filter(manipulation_group == "hfls") %>%
+  ggplot(aes(x = condition, y = count_word, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "HFLS", y = "Number of fixations")
+
+
+time_line_plot_3 <- f_df_fixation_count %>%
+  filter(manipulation_group == "lfhs") %>%
+  ggplot(aes(x = condition, y = count_word, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "LFHS", y = "Number of fixations")
+
+
+time_line_plot_4 <- f_df_fixation_count %>%
+  filter(manipulation_group == "lfls") %>%
+  ggplot(aes(x = condition, y = count_word, group = subject, colour = subject)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "none") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5), axis.title.x = element_blank() ) +
+  labs(title = "LFLS", y = "Number of fixations")
+
+fixation_plot_line <- gridExtra::grid.arrange(time_line_plot_1, time_line_plot_2, time_line_plot_3, time_line_plot_4, nrow = 2)
+
+p_filename <- "all_fixation_count_line.pdf"
+  
+ggsave(p_filename, fixation_plot_line, path = "visualization" )
+```
+
+
+
+```{r}
+# Duration summary (mean and sd)
+
+df_all_final %>%
+  group_by(subject, cond_spec) %>%
+  summarise(mean(duration), sd(duration))
+
+```
+
+

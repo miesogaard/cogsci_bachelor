@@ -1,0 +1,991 @@
+---
+title: "analysis_1ea"
+author: "Mie Buchhave Søgaard"
+date: "11/2/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+```{r}
+
+pacman::p_load(tidyverse, ggplot2, lme4, MASS)
+pacman::p_load(DHARMa)
+
+
+```
+
+```{r}
+setwd("~/Dokumenter/AU/5. Bachelor/analysis_e1a")
+
+```
+
+```{r message=FALSE, warning=FALSE}
+files <- list.files(path = "data", pattern = ".csv", full.names = T)
+
+df <- map_dfr(files, read_csv) #loading the data
+
+
+number_files <- list.files(path = "data_number_id", pattern = ".csv", full.names = T)
+df_number <- map_dfr(number_files, read_csv) #loading the data
+df_number$participant <- "yw2"
+
+same_id_files <- list.files(path = "data_extra", pattern = ".csv", full.names = T)
+same_id_df <- map_dfr(same_id_files, read_csv) #loading the data
+same_id_df$participant <- "jb2"
+
+
+df <- rbind(df, df_number, same_id_df)
+```
+
+
+```{r}
+colnames(df)[21] <- 'ID'
+colnames(df)[22] <- 'age'
+
+```
+
+```{r}
+
+df_s <- dplyr::select(df,
+                ID = ID,
+                age = age,
+                gender = your_gender,
+                rt = word_resp.rt, 
+                word_number = trials.thisTrialN,
+                word_path = words, 
+                story = story, 
+                condition = type_condition,
+                
+)
+
+df_s <- na.omit(df_s) # Apply na.omit function
+
+df_s$word_number <- df_s$word_number + 1
+```
+
+
+```{r}
+
+start_length <- length(df_s$ID)
+
+```
+
+```{r}
+# Demographics
+df_s$gender <- tolower(df_s$gender)
+
+df_demo <- df_s %>%
+  group_by(gender, ID) %>%
+  summarise(age = mean(age))
+
+df_demo %>%
+  group_by(gender) %>%
+  summarise(count = n(), proportion = count / length(df_demo$ID) * 100)
+
+mean(df_demo$age)
+sd(df_demo$age)
+
+```
+
+# Creating variables for the dataset
+
+
+```{r}
+story_1_text <- "Berkah swept the ground vigorously. He wanted to ensure that everything was perfect for his queen. He had stirred awake at 4, wondering if the disinfectant was too strong for her. He had run to his master's house, woken his disgruntled co-workers and borrowed an effective disinfectant with mild odour. Her food was ready too, a tasty combination of vitamins and minerals. Berkah looked up reverently as his queen stepped into her lair, her head high. Her coat sparkled with his care and her silky mane flew in the breeze. She neighed gratefully at the delicious scent of fresh grass."
+
+story_2_text <- "On sunny mornings, still in her dressing gown, Edith would hobble from her house, dragging along a folding chair. She would sit down in her front garden and watch people leaving for work, children going to school and dog walkers heading to the park. Anyone catching her eye was offered a friendly wave. Observing comings and goings of people made her wistful for the days when she had been a busy working mother. The people being observed noticed the old woman and wished they could trade places, longing for the day they could sit in their garden on a sunny weekday morning, carefree."
+
+story_3_text <- "Battered and bruised, the elderly woman had stumbled and was now crawling to reach her destination. She had been badly beaten but was determined. She was a survivor and somehow everyone knew she would make it. When she arrived at the pedestal, she thrust her sword in the ground and used it as a support to raise herself to a standing position. She withdrew the sword from the ground with her right hand and collected her scales with her left. She now proudly stood tall and erect as Lady Justice had finally regained her rightful position."
+
+story_4_text <- "After an arduous trek of more than two kilometers through the bushes, big boulders, slippery slopes from overnight rain as well as posted Warning signs not to advance further, Jim finally reached the summit of the monolithic mountain, still hosting the remnants of a past fort. But it was the last hundred meters of crawling on jagged stone that made him breathless. But from the top, the beauty of nature in front made him more breathless. The blue Aegean Sea dotted with volcanic islands and two slow-moving cruise ships, matching the blue color of cloudless sky appeared surreal. He remained stunned."
+
+story_5_text <- "They crossed paths at a downtown club in 1984. When the material girl in the shocking-pink minidress, neon-yellow pumps, and armful of colorful bangles locked eyes with the spikey-haired rebel in the leather pants and mesh tank, love struck. They became the quintessential eighties couple, young and stylish, with a future even brighter than her clothes. These days, he hides what is left of his hair beneath a baseball hat and she has traded in her fluorescent frocks for a wardrobe of neutrals, but sometimes on Friday nights they dust off their old CDs and dance until dawn."
+
+story_1_text <- strsplit(story_1_text, " ", fixed=T)
+story_2_text <- strsplit(story_2_text, " ", fixed=T)
+story_3_text <- strsplit(story_3_text, " ", fixed=T)
+story_4_text <- strsplit(story_4_text, " ", fixed=T)
+story_5_text <- strsplit(story_5_text, " ", fixed=T)
+```
+
+Extracting regular words without asterisks and additional symbols
+
+```{r}
+df_new <- df_s
+
+df_new <- distinct(df_new, story, ID, .keep_all= TRUE)
+
+count = 0
+regular_words <- c()
+
+for (i in 1:length(df_new$story)) {
+  if (df_new$story[i] == "story_1") {
+    for (word in story_1_text) {
+      regular_words <- append(regular_words, word)
+    }
+  } else if (df_new$story[i] == "story_2") {
+    for (word in story_2_text) {
+      regular_words <- append(regular_words, word)
+    }
+  } else if (df_new$story[i] == "story_3") {
+    for (word in story_3_text) {
+      regular_words <- append(regular_words, word)
+    }
+  } else if (df_new$story[i] == "story_4") {
+    for (word in story_4_text) {
+      regular_words <- append(regular_words, word)
+    }
+  } else if (df_new$story[i] == "story_5") {
+    for (word in story_5_text) {
+      regular_words <- append(regular_words, word)
+    }
+  }
+}
+
+df_s$reg_words <- regular_words
+
+df_s %>%
+  summarise(count = n())
+
+```
+
+```{r}
+
+# Registering trials for each participant
+
+count <- 1
+
+for (i in 1:length(df_s$story)) {
+  if (i == 1) {
+    df_s$trial[i] <- 1
+  }
+  else if (df_s$story[i] == df_s$story[i-1]) {
+    df_s$trial[i] <- count
+  } else if (df_s$story[i] != df_s$story[i-1]) {
+    count <- count + 1
+    if (count == 6) {
+      count <- 1
+    }
+    df_s$trial[i] <- count
+  }
+  
+  
+  
+}
+
+```
+
+```{r}
+# Tokenize words (remove special characters and )
+tokenize_words <- regular_words
+word_length <- c()
+
+# TOKENIZING (uppercase, punctuation and comma)
+
+for (i in 1:length(regular_words)) {
+  this_word <- regular_words[i]
+
+  if ((grepl(".", this_word, fixed = TRUE)) == TRUE | (grepl(",", this_word, fixed = TRUE)) == TRUE){
+    this_word <- gsub("[[:punct:]]", "", this_word)
+  }
+  
+  this_word <- tolower(this_word)
+  tokenize_words[i] <- this_word
+  word_length[i] <- nchar(this_word)
+}
+
+df_s$tokenize_words <- tokenize_words
+
+```
+
+
+```{r}
+# FUNCTION WORD OR NOT
+stopword_list <- stopwords::stopwords("en", source = "nltk")
+
+
+function_word <- c()
+
+for (i in 1:length(df_s$tokenize_words)) {
+  if (df_s$tokenize_words[i] %in% stopword_list) {
+    function_word[i] <- 1
+  } else{
+    function_word[i] <- 0
+  }
+}
+```
+
+
+```{r}
+# BIONIC OR NOT
+is_bionic <- c()
+
+for (i in 1:length(df_s$word_path)) {
+  if (grepl("*", df_s$word_path[i], fixed = TRUE) == TRUE) {
+    is_bionic[i] <- "bionic"
+  } else {
+    is_bionic[i] <- "regular"
+
+  }
+}
+
+# Adding columns to dataframe
+df_s$word_length <- word_length
+df_s$function_word <- as.factor(function_word)
+df_s$is_bionic <- is_bionic
+
+```
+
+```{r}
+# BIONIC TYPE
+bionic_type <- c()
+
+for (i in 1:length(df_s$word_path)) {
+  if (grepl("hf", df_s$condition[i], fixed = TRUE) == TRUE) {
+    bionic_type[i] <- "high"
+  } else if (grepl("lf", df_s$condition[i], fixed = TRUE) == TRUE) {
+    bionic_type[i] <- "low"
+  } else {
+    bionic_type[i] <- "none"
+  }
+}
+
+df_s$bionic_type <- bionic_type
+
+```
+
+```{r}
+# SPECIAL PLACEMENT OF WORD
+special_placement <- c()
+count = 0
+
+for (i in 1:length(df_s$word_path)) {
+  count = count + 1
+  if (count == 1) {
+    special_placement[i] = "initial"
+  } else if (grepl(".", df_s$reg_words[i], fixed = TRUE) == TRUE) {
+    special_placement[i] <- "terminal"
+  } else if (grepl(",", df_s$reg_words[i], fixed = TRUE) == TRUE) {
+    special_placement[i] <- "terminal"
+  } else if ((grepl(".", df_s$reg_words[i-1], fixed = TRUE) == TRUE)) {
+    special_placement[i] <- "initial"
+  } else {
+    special_placement[i] <- "regular"
+  }
+}
+
+df_s$special_placement <- special_placement
+
+```
+
+
+
+```{r}
+# Getting how many data points in each special placement category
+
+count_special_placement <- df_s %>%
+  group_by(special_placement) %>%
+  summarise(count = n())
+
+count_special_placement
+```
+
+
+```{r}
+# Finding the total number of irregular words
+count_special_placement$count[1] + count_special_placement$count[3]
+```
+
+
+```{r}
+# Finding the percentage of the whole dataset
+(count_special_placement$count[1] + count_special_placement$count[3]) / length(df_s$ID) * 100
+
+```
+
+```{r}
+df_invest <- df_s
+
+```
+
+### Detecting outliers
+
+```{r}
+
+# Investigating data points in boxplot
+
+ggplot(df_s, aes(y = rt)) +
+  geom_boxplot(outlier.shape = 4)
+
+```
+
+
+
+```{r}
+
+#find Q1, Q3, and interquartile range for values in column A
+Q1 <- quantile(df_s$rt, .05)
+Q3 <- quantile(df_s$rt, .95)
+IQR <- IQR(df_s$rt)
+
+#only keep rows in dataframe that have values within 1.5*IQR of Q1 and Q3
+no_outliers <- subset(df_s, df_s$rt > (Q1 - 1.5*IQR) & df_s$rt< (Q3 + 1.5*IQR))
+
+#view row and column count of new data frame
+dim(no_outliers) 
+```
+
+```{r}
+df_s <- no_outliers
+```
+
+
+```{r}
+# Investigating data points in boxplot
+
+ggplot(no_outliers, aes(y = rt)) +
+  geom_boxplot(outlier.shape = 4)
+
+```
+
+
+```{r}
+
+rt_count <- df_s %>%
+  group_by(ID) %>%
+  summarise(count = n())
+
+print(rt_count[order(rt_count$count, decreasing = FALSE), ]   )
+
+```
+
+```{r}
+citation('multcomp')
+```
+
+```{r}
+
+df_s <- df_s %>%
+  filter(ID != "xyz679")
+```
+
+```{r}
+quantile(df_s$rt)
+```
+
+
+```{r}
+ggplot(no_outliers, aes(y = rt)) +
+  geom_boxplot(outlier.shape = 4)
+```
+
+```{r}
+length_now <- length(df_s$ID)
+
+count_excluded <- start_length - length_now
+
+print(count_excluded)
+
+count_excluded / start_length * 100
+
+```
+
+
+```{r}
+df_wpm <- NA
+
+df_wpm <- df_s %>%
+  group_by(ID, trial, condition, story) %>%
+  summarise(sum_rt = sum(rt), count = n(), wpm = (count/(sum_rt/60)))
+
+```
+
+## CHECKING FOR NORMALITY
+
+
+```{r}
+
+fixations_list <- NA
+saccades_list <- NA
+
+for (i in 1:length(df_wpm$ID)) {
+  this_condition <- df_wpm$condition[i]
+  if (this_condition == "hfhs") {
+    fixations_list[i] <- "high"
+    saccades_list[i] <- "high"
+  } else if (this_condition == "hfls") {
+    fixations_list[i] <- "high"
+    saccades_list[i] <- "low"
+  } else if (this_condition == "lfls") {
+    fixations_list[i] <- "low"
+    saccades_list[i] <- "low"
+  } else  if (this_condition == "lfhs") {
+    fixations_list[i] <- "low"
+    saccades_list[i] <- "high"
+  } else {
+    fixations_list[i] <- "none"
+    saccades_list[i] <- "none" 
+  }
+}
+
+df_wpm$fixations <- fixations_list
+df_wpm$saccades <- saccades_list
+  
+
+```
+
+```{r}
+
+# Plotting normal wpm data
+qqnorm(df_wpm$wpm)
+qqline(df_wpm$wpm)
+
+# Trying with sqrt
+qqnorm(sqrt(df_wpm$wpm))
+qqline(sqrt(df_wpm$wpm))
+
+# Trying with log - improving a lot!
+qqnorm(log(df_wpm$wpm))
+qqline(log(df_wpm$wpm))
+
+```
+
+```{r}
+ggplot(df_wpm, aes(wpm)) +
+geom_histogram(aes(y = ..density..), colour = "black", fill = "white") +
+stat_function(fun = dnorm, args = list(mean = mean(df_wpm$wpm), sd = sd(df_wpm$wpm)), colour = "red"
+, size = 1)
+
+ggplot(df_wpm, aes(sqrt(wpm))) +
+geom_histogram(aes(y = ..density..), colour = "black", fill = "white") +
+stat_function(fun = dnorm, args = list(mean = mean(sqrt(df_wpm$wpm)), sd = sd(sqrt(df_wpm$wpm))), colour = "red"
+, size = 1)
+
+ggplot(df_wpm, aes(log(wpm))) +
+geom_histogram(aes(y = ..density..), colour = "black", fill = "white") +
+stat_function(fun = dnorm, args = list(mean = mean(log(df_wpm$wpm)), sd = sd(log(df_wpm$wpm))), colour = "red"
+, size = 1)
+```
+
+
+```{r}
+
+# Regular wpm
+round(pastecs::stat.desc(cbind(df_wpm$wpm), basic = FALSE, norm = TRUE), digits=3)
+
+# Sqrt transformation
+round(pastecs::stat.desc(cbind(sqrt(df_wpm$wpm)), basic = FALSE, norm = TRUE), digits=3)
+
+# Log transformation
+round(pastecs::stat.desc(cbind(log(df_wpm$wpm)), basic = FALSE, norm = TRUE), digits=3)
+
+```
+
+```{r}
+
+# Adding a log-transformed wpm to the data frame
+
+df_wpm$wpm_log <- log(df_wpm$wpm)
+
+
+```
+
+```{r}
+by(df_wpm$wpm_log, df_wpm$condition, shapiro.test)
+```
+
+```{r}
+car::leveneTest(df_wpm$wpm, df_wpm$condition)
+```
+
+
+```{r}
+car::leveneTest(df_wpm$wpm_log, df_wpm$condition)
+
+```
+
+```{r}
+
+# How many times each story is shown in each condition
+
+ggplot(df_wpm, aes(x = story, fill = story)) +
+  geom_bar() +
+  facet_wrap(~condition) +
+  ggtitle("How many time each story has been shown in each condition") +
+  theme_minimal()
+
+```
+
+# Descriptive investigation of wpm
+
+```{r}
+df_wpm$trial <- as.factor(df_wpm$trial)
+
+ggplot(df_wpm, aes(x=condition, y = wpm, group = ID, color = ID)) +
+  geom_point(aes(color = trial)) +
+  geom_line() +
+  theme(legend.position="none")
+```
+
+## ANALYSIS OF RQ1A
+
+### Does wpm change across conditions?
+
+
+```{r}
+df_wpm$trial <- as.numeric(df_wpm$trial)
+
+df_wpm$condition <- as.factor(df_wpm$condition)
+```
+
+
+```{r}
+lmer_model_1a_1 <- lmerTest::lmer(data = df_wpm, wpm_log ~ condition + (1| ID) + (1 | story), REML = FALSE)
+```
+
+
+```{r}
+plot(lmer_model_1a_1)
+
+qqnorm(resid(lmer_model_1a_1))
+qqline(resid(lmer_model_1a_1))
+
+```
+
+```{r}
+summary(lmer_model_1a_1)
+```
+```{r}
+sigma(lmer_model_1a_1)
+```
+
+
+```{r}
+# Intercept wpm
+exp(4.75616)
+```
+
+```{r}
+# Finding the inverse log
+
+# CONTROL
+(exp(4.75616))
+
+# HFHS
+exp(4.75616 - 0.02054)
+
+# HFLS
+exp(4.75616 + 0.01187)
+
+# LFHS
+exp(4.75616 - 0.01867)
+
+# LFLS
+exp(4.75616 - 0.02841)
+
+```
+
+
+
+```{r}
+df_wpm_subset <- df_wpm %>%
+  filter(fixations != "none")
+```
+
+
+
+```{r}
+# Interaction between high/low fixations/saccades
+
+df_wpm_subset$fixations <- factor(df_wpm_subset$fixations, levels=c("high", "low"))
+df_wpm_subset$saccades <- factor(df_wpm_subset$saccades, levels=c("high", "low"))
+```
+
+
+```{r}
+model_1a_2 <- lmerTest::lmer(data = df_wpm_subset, wpm_log ~ fixations*saccades + (1 | ID) + (1 | story))
+```
+
+```{r}
+
+# Check multicollinearity
+car::vif(model_1a_2)
+```
+
+
+
+```{r}
+test1_model_1a_2 <- lmerTest::lmer(data = df_wpm_subset, wpm_log ~ fixations*saccades + (1 + trial | ID) + (1 | story))
+
+anova(model_1a_2, test1_model_1a_2)
+
+```
+
+```{r}
+plot(model_1a_2)
+
+qqnorm(resid(model_1a_2))
+qqline(resid(model_1a_2))
+
+```
+
+```{r}
+summary(model_1a_2)
+
+```
+
+
+```{r}
+exp((4.742844 + 0.027375))
+
+exp((4.742844 - 0.036060 - 0.005264 + 0.027375))
+
+```
+
+```{r}
+
+interaction.plot(x.factor = df_wpm_subset$saccades, 
+                 trace.factor = df_wpm_subset$fixations,
+                 response = df_wpm_subset$wpm_log)
+
+interaction.plot(x.factor = df_wpm_subset$fixations, 
+                 trace.factor = df_wpm_subset$saccades,
+                 response = df_wpm_subset$wpm_log,
+                 ylab = "Mean of wpm (log)",
+                 xlab = "Fixations",
+                 trace.label = "Saccades")
+
+
+```
+```{r}
+
+boxplot(wpm_log ~ saccades * fixations, data=df_wpm_subset)
+
+```
+```{r}
+
+plot(effects::allEffects(model_1a_2))
+
+```
+
+
+---
+
+## ANALYSIS OF RQ1B
+
+
+```{r}
+
+df_s_filter <- df_s %>%
+  filter(special_placement == "regular")
+
+
+only_regular_length <- length(df_s_filter$ID)
+
+difference_again <- length_now - only_regular_length
+print(difference_again)
+
+difference_again / length_now * 100
+
+```
+```{r}
+df_s_filter$rt <- round(df_s_filter$rt * 1000)
+```
+
+
+Comparing to all data points (no mean for each participant)
+```{r}
+
+# Plotting normal response time data
+qqnorm(df_s_filter$rt)
+qqline(df_s_filter$rt)
+
+# Trying with sqrt
+qqnorm(sqrt(df_s_filter$rt))
+qqline(sqrt(df_s_filter$rt))
+
+# Trying with log - improving a lot!
+qqnorm(log(df_s_filter$rt))
+qqline(log(df_s_filter$rt))
+
+```
+```{r}
+ggplot(df_s_filter, aes(rt)) +
+geom_histogram(aes(y = ..density..), colour = "black", fill = "white") +
+stat_function(fun = dnorm, args = list(mean = mean(df_s_filter$rt), sd = sd(df_s_filter$rt)), colour = "red"
+, size = 1)
+
+ggplot(df_s_filter, aes(sqrt(rt))) +
+geom_histogram(aes(y = ..density..), colour = "black", fill = "white") +
+stat_function(fun = dnorm, args = list(mean = mean(sqrt(df_s_filter$rt)), sd = sd(sqrt(df_s_filter$rt))), colour = "red"
+, size = 1)
+
+ggplot(df_s_filter, aes(log(rt))) +
+geom_histogram(aes(y = ..density..), colour = "black", fill = "white") +
+stat_function(fun = dnorm, args = list(mean = mean(log(df_s_filter$rt)), sd = sd(log(df_s_filter$rt))), colour = "red"
+, size = 1)
+
+```
+
+
+```{r}
+df_s_filter$rt_log <- log(df_s_filter$rt)
+
+df_s_filter$rt_sqrt <- sqrt(df_s_filter$rt)
+
+```
+
+
+```{r}
+
+df_s_filter$word_length <-df_s_filter$word_length - 1
+
+df_s_filter$word_length <- as.integer(df_s_filter$word_length)
+
+```
+
+
+```{r}
+df_s_filter_bio <- df_s_filter %>%
+  filter(is_bionic == "bionic")
+  
+ggplot(df_s_filter_bio, aes(rt)) +
+geom_histogram(aes(y = ..density..), colour = "black", fill = "white") +
+stat_function(fun = dnorm, args = list(mean = mean(df_s_filter_bio$rt), sd = sd(df_s_filter_bio$rt)), colour = "red"
+, size = 1)
+
+ggplot(df_s_filter_bio, aes(rt_sqrt)) +
+geom_histogram(aes(y = ..density..), colour = "black", fill = "white") +
+stat_function(fun = dnorm, args = list(mean = mean(df_s_filter_bio$rt_sqrt), sd = sd(df_s_filter_bio$rt_sqrt)), colour = "red"
+, size = 1)
+
+ggplot(df_s_filter_bio, aes(rt_log)) +
+geom_histogram(aes(y = ..density..), colour = "black", fill = "white") +
+stat_function(fun = dnorm, args = list(mean = mean(df_s_filter_bio$rt_log), sd = sd(df_s_filter_bio$rt_log)), colour = "red"
+, size = 1)
+```
+
+```{r}
+df_s_filter_reg <- df_s_filter %>%
+  filter(is_bionic == "regular")
+  
+ggplot(df_s_filter_reg, aes(rt)) +
+geom_histogram(aes(y = ..density..), colour = "black", fill = "white") +
+stat_function(fun = dnorm, args = list(mean = mean(df_s_filter_reg$rt), sd = sd(df_s_filter_reg$rt)), colour = "red"
+, size = 1)
+
+ggplot(df_s_filter_reg, aes(rt_sqrt)) +
+geom_histogram(aes(y = ..density..), colour = "black", fill = "white") +
+stat_function(fun = dnorm, args = list(mean = mean(df_s_filter_reg$rt_sqrt), sd = sd(df_s_filter_reg$rt_sqrt)), colour = "red"
+, size = 1)
+
+ggplot(df_s_filter_reg, aes(rt_log)) +
+geom_histogram(aes(y = ..density..), colour = "black", fill = "white") +
+stat_function(fun = dnorm, args = list(mean = mean(df_s_filter_reg$rt_log), sd = sd(df_s_filter_reg$rt_log)), colour = "red"
+, size = 1)
+```
+```{r}
+qqnorm(df_s_filter_bio$rt_sqrt)
+qqline(df_s_filter_bio$rt_sqrt)
+
+qqnorm(df_s_filter_reg$rt_sqrt)
+qqline(df_s_filter_reg$rt_sqrt)
+
+```
+
+
+```{r}
+df_s_filter$is_bionic <- as.factor(df_s_filter$is_bionic)
+```
+
+```{r}
+df_s_filter$function_word <- factor(df_s_filter$function_word, levels=c(0, 1))
+```
+
+
+Investigating models (LMM vs. GLMM approach)
+
+```{r}
+lmer_sqrt_model_1b <- lmerTest::lmer(data = df_s_filter, rt_sqrt ~ is_bionic*function_word*word_length + (1 + is_bionic + function_word + word_length | ID) + (1 + is_bionic + function_word + word_length | story), REML = FALSE, control = lmerControl(optimizer="bobyqa"))
+```
+
+```{r}
+test_1lmer_log_model_1b <- lmerTest::lmer(data = df_s_filter, rt_log ~ is_bionic*function_word*word_length + (1 + is_bionic + function_word | ID) + (1 + is_bionic + function_word | story), REML = FALSE, control = lmerControl(optimizer="bobyqa"))
+```
+
+```{r}
+
+gau_log_model_1b_1 <- lme4::glmer(data = df_s_filter, rt_sqrt ~ is_bionic*function_word*word_length + (1 + is_bionic + function_word + word_length | ID) + (1 + is_bionic + function_word + word_length | story), family=gaussian(link= "log"),nAGQ = 0)
+```
+
+```{r}
+inv_gau_log_model_1b_1 <- lme4::glmer(data = df_s_filter, rt ~ is_bionic*function_word*word_length + (1 + is_bionic + function_word + word_length | ID) + (1 + is_bionic + function_word | story), family=inverse.gaussian(link= "log"),nAGQ = 0)
+```
+
+```{r}
+gamma_log_model_1b_1 <- lme4::glmer(data = df_s_filter, rt_sqrt ~ is_bionic*function_word*word_length + (1 + is_bionic + function_word + word_length | ID) + (1 + is_bionic + function_word + word_length | story), family=Gaussian(link= "log"),nAGQ = 0)
+```
+
+
+```{r}
+
+plot(effects::allEffects(lmer_sqrt_model_1b))
+
+```
+
+```{r}
+
+plot(fitted(lmer_sqrt_model_1b),resid(lmer_sqrt_model_1b)) 
+abline(h=0, lty=2) 
+
+qqnorm(resid(lmer_sqrt_model_1b)) 
+qqline(resid(lmer_sqrt_model_1b))
+
+
+```
+
+```{r}
+
+simulationOutput <- simulateResiduals(fittedModel = lmer_sqrt_model_1b, plot = F)
+
+
+plot(simulationOutput)
+
+```
+
+```{r}
+
+testDispersion(simulationOutput)
+
+```
+
+
+```{r}
+testQuantiles(simulationOutput)
+```
+
+
+```{r}
+simulationOutput <- simulateResiduals(fittedModel = gau_log_model_1b_1, plot = F)
+
+plot(simulationOutput)
+```
+
+```{r}
+
+testDispersion(simulationOutput)
+
+```
+
+```{r}
+
+testQuantiles(simulationOutput)
+
+```
+
+```{r}
+
+plot(fitted(gau_log_model_1b_1),resid(gau_log_model_1b_1)) 
+abline(h=0, lty=2) 
+
+qqnorm(resid(gau_log_model_1b_1)) 
+qqline(resid(gau_log_model_1b_1))
+
+```
+
+```{r}
+
+summary(lmer_sqrt_model_1b)
+
+```
+
+
+```{r}
+car::vif(lmer_sqrt_model_1b)
+```
+
+
+```{r}
+df_s_filter$pred <- predict(lmer_sqrt_model_1b, type = "response")
+```
+
+```{r}
+
+df_s_filter %>%
+  filter(function_word == 0) %>%
+  ggplot(aes(x = factor(word_length), y = (pred)^2, color = is_bionic)) +
+    stat_summary(fun.y=mean, geom="point", size=2) + 
+    stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.1) +
+    scale_fill_brewer(palette = 3) +
+    labs(x="Word Length",y= "Response Time (ms)", subtitle = "Function Words", title = "Predicted Response Time With And Without Manipulation \n") +
+    guides(fill = guide_legend(title = "Word Type")) +
+    theme_bw() +
+    theme(legend.position = "top",plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5),legend.title = element_blank())
+
+
+df_s_filter %>%
+  filter(function_word == 1) %>%
+  ggplot(aes(x = factor(word_length), y = (pred)^2, color = is_bionic)) +
+    stat_summary(fun.y=mean, geom="point", size=2) + 
+    stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.1) +
+    scale_fill_brewer(palette = 3) +
+    labs(x="Word Length", y= "Response Time (ms)",subtitle = "Content Words", title = "Predicted Response Time With And Without Manipulation \n") +
+    theme_bw() +
+    theme(legend.position = "top", plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5), legend.title = element_blank())
+
+```
+
+
+### EXTRA (not used): let us tak a look at how many of the words in the stories (now we are just looking at all stories in the "HFLS | LFLS" conditions at once
+
+```{r}
+
+# Testing on all data (as rt has no influence on this measurement)
+
+#only_ls <- df_invest[df_invest$condition == 'hfls' | df_invest$condition == 'lfls', ]
+#how_many <- 0
+#total_ls_words <- 0
+
+#for (i in 1:length(only_ls$function_word)) {
+#  if (only_ls$is_bionic[i] == "bionic") {
+#    total_ls_words <- total_ls_words + 1
+#  }
+#  if (only_ls$function_word[i] == 1 & only_ls$is_bionic[i] == "bionic") { #if highlighted word is function word
+#    how_many <- how_many + 1
+#  }
+#}
+
+#print(paste("How many percentage of the highlighted words belongs to the function word category in total:", as.character(round((how_many / total_ls_words ) * 100)), "%"))
+
+```
+
+```{r}
+
+#stories = c("story_1", "story_2", "story_3", "story_4", "story_5")
+
+#for (s in 1:5){
+#  total_ls_words <- 0
+#  how_many <- 0
+#  
+#  this_story <- only_ls %>%
+#    filter(story == stories[s])
+
+#  for (i in 1:length(this_story$function_word)) {
+#    if (this_story$is_bionic[i] == "bionic") {
+#      total_ls_words <- total_ls_words + 1
+#    }
+#    if (this_story$function_word[i] == 1 & this_story$is_bionic[i] == "bionic") { #if highlighted word is function word
+#      how_many <- how_many + 1
+#    }
+#  }
+#  print(paste("How many percentage of the highlighted words belongs to the function word category:", as.character(round((how_many / total_ls_words ) * #100)), "%"))
+#}
+
+
+```
+
+
